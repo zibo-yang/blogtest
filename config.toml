@@ -1,4 +1,4 @@
-baseURL = 'http://zibo-yang.github.io/blogtest/'
+baseURL = 'https://zibo-yang.github.io/blogtest/'
 languageCode = 'en-us'
 title = 'My New Hugo Site'
 theme = 'ananke'
