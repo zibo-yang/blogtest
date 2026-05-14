@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,xcolor}
+\input{_macros}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}[lemma]{Proposition}
+\newtheorem{theorem}[lemma]{Theorem}
+
+\title{Time-Periodic Solutions of a KdV Equation at a Critical Length}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem Statement}
+
+Consider the Korteweg--de Vries (KdV) equation on the interval $x \in (0, L)$:
+\begin{equation}\label{eq:kdv}
+y_t + y_{xxx} + y_x + y\, y_x = 0,
+\end{equation}
+with boundary conditions
+\begin{equation}\label{eq:bc}
+y(t, 0) = y(t, L) = y_x(t, L) = 0,
+\end{equation}
+where $L$ belongs to the critical length set
+\[
+\mathcal{N} := \left\{ 2\pi \sqrt{\frac{k^2 + kl + l^2}{3}} : k, l \in \mathbb{Z}_{>0} \right\}
+\]
+introduced by Rosier (1997).
+
+\medskip\noindent
+\textbf{Task.} Take $k = 2$, $l = 1$, so that
+\[
+L = 2\pi \sqrt{\frac{4 + 2 + 1}{3}} = 2\pi\sqrt{\frac{7}{3}}.
+\]
+Prove the existence of a non-zero, time-periodic solution $(y, T)$ with $T > 0$ to equations~\eqref{eq:kdv}--\eqref{eq:bc} with this value of $L$.
+
+\medskip\noindent
+\textbf{Overview of the proof.} Rather than employing the Lyapunov--Schmidt bifurcation approach suggested by the hint, we observe that any nonzero stationary solution $y(t,x) = u(x)$ is automatically $T$-periodic for every $T > 0$. We reduce the PDE to a second-order ODE boundary value problem via a first integral, construct a one-parameter family of negative-loop orbits using phase-plane analysis, and show by the intermediate value theorem that one member of this family has spatial period exactly $L = 2\pi\sqrt{7/3}$.
+
+%% Proof sections
+\input{section_1_stationary_criterion}
+\input{section_2_negative_loop}
+\input{section_3_matching_length}
+\input{section_4_conclusion}
+
+\begin{thebibliography}{9}
+\bibitem{rosier1997} L.~Rosier, \emph{Exact boundary controllability for the Korteweg--de Vries equation on a bounded domain}, ESAIM: Control Optim.\ Calc.\ Var.\ \textbf{2} (1997), 33--55.
+
+\bibitem{crepeau2004} E.~Cr\'epeau and J.-M.~Coron, \emph{Exact boundary controllability of a nonlinear KdV equation with critical lengths}, J.\ Eur.\ Math.\ Soc.\ \textbf{6} (2004), 367--398.
+
+\bibitem{niu2025} J.~Niu and S.~Xiang, \emph{Small-time local controllability for a KdV equation at all critical lengths}, arXiv:2501.13640 (2025).
+\end{thebibliography}
+
+\end{document}
