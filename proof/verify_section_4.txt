@@ -1,0 +1,14 @@
+Anchor: Theorem thm:main  
+Location: “By Proposition~\ref{prop:matching}, there exists $a_* \in (0, 3/2)$ such that $P(a_*) = 2\pi\sqrt{7/3} = L$.”  
+Description: Justification Gap. Proposition~\ref{prop:matching} is invoked but neither stated nor proved in the provided solution, and the function $P$ is not defined in the provided solution. Thus the existence of such an $a_*$ is unsupported.
+
+Anchor: Theorem thm:main  
+Location: “By Proposition~\ref{prop:negative-loop}, there exists a nonzero function $u_{a_*} \in C^3([0, L])$ satisfying
+\[
+u_{a_*}'' + u_{a_*} + \tfrac{1}{2}\,u_{a_*}^2 = C_{a_*}, \qquad u_{a_*}(0) = u_{a_*}'(0) = u_{a_*}(L) = u_{a_*}'(L) = 0.
+\]”  
+Description: Justification Gap. Proposition~\ref{prop:negative-loop} is invoked but neither stated nor proved in the provided solution, so the existence and stated properties of $u_{a_*}$ are not justified.
+
+Anchor: Theorem thm:main  
+Location: “By Lemma~\ref{lem:stationary}, for any $T > 0$ (say $T = 1$), the function $y(t,x) = u_{a_*}(x)$ is a nonzero $T$-periodic classical solution of the KdV equation with the prescribed boundary conditions.”  
+Description: Justification Gap. Lemma~\ref{lem:stationary} is invoked but neither stated nor proved in the provided solution. The passage from the second-order ODE and boundary data to a classical stationary solution of the third-order KdV boundary-value problem is therefore not explicitly justified.

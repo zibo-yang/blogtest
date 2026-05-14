@@ -1,0 +1,3 @@
+Anchor: global  
+Location: “\section{Stationary Profile Criterion} … Then for every \(T > 0\), the function \(y(t,x)=u(x)\) is a nonzero \(T\)-periodic classical solution …”  
+Description: Critical Error. The solution only proves a conditional criterion: if a nonzero \(u\in C^3([0,L])\) satisfying the stated second-order boundary value problem exists, then a stationary KdV solution exists. It never proves that such a nonzero \(u\) exists for the required length \(L=2\pi\sqrt{7/3}\). Therefore the main existence claim in the problem is not established.
