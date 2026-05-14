@@ -1,0 +1,101 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,xcolor}
+\input{_macros}
+
+\title{A Residue Reformulation of the Local Curve Identity:\\
+  Proof Attempt and Numerical Refutation}
+\date{2026-05-14}
+
+\begin{document}
+\maketitle
+
+% ---------- Problem statement ----------
+\section*{Problem Statement (Conjecture 1)}
+
+Let $l_1, l_2, l_3 \in \mathbb{Z}$ satisfy
+\[
+  l_1 + l_2 + l_3 = -2, \quad l_1 \ge l_2 \ge l_3,
+\]
+and let $\lambda_1, \lambda_2, \lambda_3$ satisfy $\lambda_1 + \lambda_2 + \lambda_3 = 0$.
+Set
+\[
+  X_1 = \lambda_1^{-l_1-1}\,\lambda_2^{-l_2-1}\,\lambda_3^{-l_3-1}.
+\]
+Define
+\[
+  \bar{l} \;=\;
+  \begin{cases}
+    l, & l \ge 0,\\
+    -l-1, & l < 0,
+  \end{cases}
+  \qquad
+  \sigma(m) := \tfrac{m(m+1)}{2}.
+\]
+Then
+\[
+  Y = \frac{1}{8}\,\lambda_1^{-2l_1-1}\lambda_2^{-2l_2-1}\lambda_3^{-2l_3-1}
+  \Bigl(
+    \sigma(\bar{l}_1)\lambda_1^{-2}
+   +\sigma(\bar{l}_2)\lambda_2^{-2}
+   +\sigma(\bar{l}_3)\lambda_3^{-2}
+   +l_1 l_2\,\lambda_1^{-1}\lambda_2^{-1}
+   +l_2 l_3\,\lambda_2^{-1}\lambda_3^{-1}
+   +l_1 l_3\,\lambda_1^{-1}\lambda_3^{-1}
+  \Bigr).
+\]
+Further, define
+\[
+  X_2 = -\lambda_1^{-2l_1-2}\lambda_2^{-2l_2-2}(\lambda_1+\lambda_2)^{-2l_3-2}
+  \Biggl(
+    \sum_{\substack{1\le k\le l_1\\ k\equiv l_1\pmod{2}}} A(l_1,l_2,l_3,k)
+   +\sum_{\substack{1\le k\le l_2\\ k\equiv l_2\pmod{2}}} B(l_1,l_2,l_3,k)
+  \Biggr),
+\]
+where
+\begin{align*}
+  A(l_1,l_2,l_3,k) &= \operatorname{Res}_{h=0}\Bigl[
+    h^{-k}(h-\lambda_1)^2(h+\lambda_2)^{k+l_2}(h+\lambda_1-\lambda_2)^{k+l_3}\\
+    &\quad\times
+    (h-\lambda_1+\lambda_2)^{l_1-l_2-k}(h-2\lambda_1-\lambda_2)^{l_1-l_3-k}
+    (h-2\lambda_1)^{k-2-2l_1}
+  \Bigr],
+\end{align*}
+and
+\begin{align*}
+  B(l_1,l_2,l_3,k) &= \operatorname{Res}_{h=0}\Bigl[
+    h^{-k}(h-\lambda_2)^2(h+\lambda_1)^{k+l_1}(h+\lambda_2-\lambda_1)^{k+l_3}\\
+    &\quad\times
+    (h-\lambda_2+\lambda_1)^{l_2-l_1-k}(h-2\lambda_2-\lambda_1)^{l_2-l_3-k}
+    (h-2\lambda_2)^{k-2-2l_2}
+  \Bigr].
+\end{align*}
+
+\noindent\textbf{Claim:} $Y = X_2 + \tfrac{1}{8}\,X_1$.
+
+\bigskip
+
+% ---------- Section 1 ----------
+\subsection*{Section 1: Normalization (Equivalence Reduction)}
+
+\input{section_1_normalize}
+
+\bigskip
+
+% ---------- Section 2 ----------
+\subsection*{Section 2: Boundary Cases ($l_1 \le 0$)}
+
+\input{section_2_boundary}
+
+\bigskip
+
+% ---------- Section 3 ----------
+\subsection*{Section 3: Compressing the Residue Sums}
+
+\input{section_3_compress}
+
+\bigskip
+
+% ---------- Section 4 ----------
+\input{section_4_evaluate}
+
+\end{document}

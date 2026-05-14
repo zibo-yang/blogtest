@@ -1,0 +1,337 @@
+\[
+\textbf{Solution.}
+\]
+
+Assume throughout that the negative powers appearing in $Q$ are meaningful, i.e. that $\lambda_1,\lambda_2,\lambda_3\neq 0$. Since $\lambda_3=-\lambda_1-\lambda_2$, this means in particular that $\lambda_1,\lambda_2,\lambda_1+\lambda_2$ are nonzero.
+
+We are given
+
+\[
+l_1+l_2+l_3=-2,\qquad l_1\ge l_2\ge l_3,\qquad l_1\le 0.
+\]
+
+Because $l_1\ge l_2\ge l_3$, we have
+
+\[
+l_2\le l_1\le 0,\qquad l_3\le l_2\le 0.
+\]
+
+Thus all three integers $l_1,l_2,l_3$ are nonpositive. If $l_1\le -1$, then
+
+\[
+l_1\le -1,\qquad l_2\le -1,\qquad l_3\le -1,
+\]
+
+so
+
+\[
+l_1+l_2+l_3\le -3,
+\]
+
+contradicting $l_1+l_2+l_3=-2$. Therefore
+
+\[
+l_1=0.
+\]
+
+Then
+
+\[
+l_2+l_3=-2,
+\]
+
+with
+
+\[
+0=l_1\ge l_2\ge l_3.
+\]
+
+Since $l_3=-2-l_2$, the condition $l_2\ge l_3$ gives
+
+\[
+l_2\ge -2-l_2,
+\]
+
+hence
+
+\[
+2l_2\ge -2,
+\]
+
+so
+
+\[
+l_2\ge -1.
+\]
+
+Also $l_2\le 0$. Since $l_2\in\mathbb Z$, the only possibilities are
+
+\[
+l_2=0 \quad\text{or}\quad l_2=-1.
+\]
+
+If $l_2=0$, then $l_3=-2$, giving
+
+\[
+(l_1,l_2,l_3)=(0,0,-2).
+\]
+
+If $l_2=-1$, then $l_3=-1$, giving
+
+\[
+(l_1,l_2,l_3)=(0,-1,-1).
+\]
+
+Thus the only possible triples are
+
+\[
+(l_1,l_2,l_3)\in\{(0,0,-2),(0,-1,-1)\}.
+\]
+
+Now we verify the two cases.
+
+---
+
+### Case $1$: \((l_1,l_2,l_3)=(0,0,-2)\)
+
+The parity-restricted sums are
+
+\[
+\sum_{\substack{1\le k\le l_1\\ k\equiv l_1\pmod 2}} A(\ldots,k)
+=
+\sum_{\substack{1\le k\le 0\\ k\equiv 0\pmod 2}} A(\ldots,k),
+\]
+
+and
+
+\[
+\sum_{\substack{1\le k\le l_2\\ k\equiv l_2\pmod 2}} B(\ldots,k)
+=
+\sum_{\substack{1\le k\le 0\\ k\equiv 0\pmod 2}} B(\ldots,k).
+\]
+
+Both indexing sets are empty, so both sums are equal to $0$.
+
+Next compute $Q$. We have
+
+\[
+\bar l_1=\bar 0=0,\qquad \bar l_2=\bar 0=0,
+\]
+
+and since $l_3=-2<0$,
+
+\[
+\bar l_3=-l_3-1=2-1=1.
+\]
+
+Also
+
+\[
+\sigma(0)=0,\qquad \sigma(1)=\frac{1\cdot 2}{2}=1.
+\]
+
+Moreover,
+
+\[
+l_1l_2=0\cdot 0=0,\qquad
+l_2l_3=0\cdot (-2)=0,\qquad
+l_1l_3=0\cdot (-2)=0.
+\]
+
+Therefore
+
+\[
+Q
+=
+0\cdot \lambda_1^{-2}
++
+0\cdot \lambda_2^{-2}
++
+1\cdot \lambda_3^{-2}
++
+0
++
+0
++
+0,
+\]
+
+so
+
+\[
+Q=\lambda_3^{-2}.
+\]
+
+Hence
+
+\[
+\lambda_1\lambda_2\lambda_3 Q
+=
+\lambda_1\lambda_2\lambda_3\cdot \lambda_3^{-2}
+=
+\lambda_1\lambda_2\lambda_3^{-1}.
+\]
+
+On the other hand,
+
+\[
+\lambda_1^{l_1+1}\lambda_2^{l_2+1}\lambda_3^{l_3+1}
+=
+\lambda_1^{0+1}\lambda_2^{0+1}\lambda_3^{-2+1}
+=
+\lambda_1\lambda_2\lambda_3^{-1}.
+\]
+
+Thus
+
+\[
+\lambda_1^{l_1+1}\lambda_2^{l_2+1}\lambda_3^{l_3+1}
+=
+\lambda_1\lambda_2\lambda_3 Q.
+\]
+
+---
+
+### Case $2$: \((l_1,l_2,l_3)=(0,-1,-1)\)
+
+The first parity-restricted sum is
+
+\[
+\sum_{\substack{1\le k\le l_1\\ k\equiv l_1\pmod 2}} A(\ldots,k)
+=
+\sum_{\substack{1\le k\le 0\\ k\equiv 0\pmod 2}} A(\ldots,k),
+\]
+
+which is empty. The second is
+
+\[
+\sum_{\substack{1\le k\le l_2\\ k\equiv l_2\pmod 2}} B(\ldots,k)
+=
+\sum_{\substack{1\le k\le -1\\ k\equiv -1\pmod 2}} B(\ldots,k),
+\]
+
+which is also empty. Hence both sums are $0$.
+
+Now compute $Q$. We have
+
+\[
+\bar l_1=\bar 0=0.
+\]
+
+Since $l_2=l_3=-1<0$,
+
+\[
+\bar l_2=-l_2-1=1-1=0,
+\]
+
+and
+
+\[
+\bar l_3=-l_3-1=1-1=0.
+\]
+
+Therefore
+
+\[
+\sigma(\bar l_1)=\sigma(\bar l_2)=\sigma(\bar l_3)=\sigma(0)=0.
+\]
+
+The pairwise products are
+
+\[
+l_1l_2=0\cdot (-1)=0,
+\]
+
+\[
+l_2l_3=(-1)(-1)=1,
+\]
+
+and
+
+\[
+l_1l_3=0\cdot (-1)=0.
+\]
+
+Thus
+
+\[
+Q
+=
+0
++
+0
++
+0
++
+0
++
+1\cdot \lambda_2^{-1}\lambda_3^{-1}
++
+0,
+\]
+
+so
+
+\[
+Q=\lambda_2^{-1}\lambda_3^{-1}.
+\]
+
+Hence
+
+\[
+\lambda_1\lambda_2\lambda_3 Q
+=
+\lambda_1\lambda_2\lambda_3\cdot \lambda_2^{-1}\lambda_3^{-1}
+=
+\lambda_1.
+\]
+
+On the other hand,
+
+\[
+\lambda_1^{l_1+1}\lambda_2^{l_2+1}\lambda_3^{l_3+1}
+=
+\lambda_1^{0+1}\lambda_2^{-1+1}\lambda_3^{-1+1}
+=
+\lambda_1\lambda_2^0\lambda_3^0
+=
+\lambda_1.
+\]
+
+Therefore
+
+\[
+\lambda_1^{l_1+1}\lambda_2^{l_2+1}\lambda_3^{l_3+1}
+=
+\lambda_1\lambda_2\lambda_3 Q.
+\]
+
+---
+
+Combining the enumeration with the two direct verifications, we conclude that if
+
+\[
+l_1+l_2+l_3=-2,\qquad l_1\ge l_2\ge l_3,\qquad l_1\le 0,
+\]
+
+then necessarily
+
+\[
+(l_1,l_2,l_3)\in\{(0,0,-2),(0,-1,-1)\},
+\]
+
+both parity-restricted sums defining $R$ are empty, so
+
+\[
+R=0,
+\]
+
+and in both cases
+
+\[
+\lambda_1^{l_1+1}\lambda_2^{l_2+1}\lambda_3^{l_3+1}
+=
+\lambda_1\lambda_2\lambda_3 Q.
+\]
+
+This proves the statement.

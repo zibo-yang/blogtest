@@ -1,0 +1,5 @@
+No issues found.
+
+--- Full verifier output ---
+
+The solution is correct.
