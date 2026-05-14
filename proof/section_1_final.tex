@@ -1,0 +1,69 @@
+\begin{theorem}[Zero-padding preserves $\rho_r$]\label{thm:padding}
+Let $1\le k\le n$, let $r\in[1,\infty)$, and let $B\in\mathbb{R}^{k\times k}$. Define
+\[
+M=\begin{pmatrix}B&0\\0&0_{n-k}\end{pmatrix}\in\mathbb{R}^{n\times n}.
+\]
+Then
+\[
+\rho_r^{(n)}(M)=\rho_r^{(k)}(B).
+\]
+\end{theorem}
+
+\begin{proof}
+\textbf{Norm identity.}
+We first prove that for any $C\in\mathbb{R}^{k\times k}$,
+\[
+\left\|\begin{pmatrix}C&0\\0&0_{n-k}\end{pmatrix}\right\|_{\ell^r_n\to\ell^r_n}
+=\|C\|_{\ell^r_k\to\ell^r_k}.
+\]
+Write $x=(u,v)\in\mathbb{R}^n$ with $u\in\mathbb{R}^k$ and $v\in\mathbb{R}^{n-k}$. Then
+$\begin{pmatrix}C&0\\0&0\end{pmatrix}x=(Cu,0)$,
+so $\left\|\begin{pmatrix}C&0\\0&0\end{pmatrix}x\right\|_r=\|Cu\|_r$.
+Also,
+\[
+\|x\|_r=\bigl(\|u\|_r^r+\|v\|_r^r\bigr)^{1/r}
+\ge \bigl(\|u\|_r^r\bigr)^{1/r}=\|u\|_r,
+\]
+where the inequality uses $\|v\|_r^r\ge0$ and the fact that $t\mapsto t^{1/r}$ is non-decreasing.
+Hence for $u\ne0$,
+\[
+\frac{\left\|\begin{pmatrix}C&0\\0&0\end{pmatrix}x\right\|_r}{\|x\|_r}
+=\frac{\|Cu\|_r}{\bigl(\|u\|_r^r+\|v\|_r^r\bigr)^{1/r}}
+\le \frac{\|Cu\|_r}{\|u\|_r}
+\le \|C\|_{\ell^r_k}.
+\]
+Taking the supremum over nonzero $x$ gives $\le\|C\|_{\ell^r_k}$.
+The reverse inequality is obtained by testing on $x=(u,0)$:
+\[
+\frac{\left\|\begin{pmatrix}C&0\\0&0\end{pmatrix}x\right\|_r}{\|x\|_r}
+=\frac{\|Cu\|_r}{\|u\|_r},
+\]
+so taking the supremum over nonzero $u$ gives $\ge\|C\|_{\ell^r_k}$. This proves the norm identity.
+
+\textbf{Lower bound on $\rho_r^{(n)}(M)$.}
+Let $\Delta=\operatorname{diag}(\delta_1,\dots,\delta_n)$ with all $\delta_i>0$.
+Write $D_1=\operatorname{diag}(\delta_1,\dots,\delta_k)$ and $D_2=\operatorname{diag}(\delta_{k+1},\dots,\delta_n)$.
+Then
+\[
+\Delta M\Delta^{-1}
+=
+\begin{pmatrix}D_1&0\\0&D_2\end{pmatrix}
+\begin{pmatrix}B&0\\0&0\end{pmatrix}
+\begin{pmatrix}D_1^{-1}&0\\0&D_2^{-1}\end{pmatrix}
+=
+\begin{pmatrix}D_1BD_1^{-1}&0\\0&0\end{pmatrix}.
+\]
+By the norm identity,
+$\|\Delta M\Delta^{-1}\|_{\ell^r_n}=\|D_1BD_1^{-1}\|_{\ell^r_k}\ge\rho_r^{(k)}(B)$.
+Taking the infimum over all $\Delta$ gives $\rho_r^{(n)}(M)\ge\rho_r^{(k)}(B)$.
+
+\textbf{Upper bound on $\rho_r^{(n)}(M)$.}
+Let $\epsilon>0$. Choose $D_1\in\mathbb{R}^{k\times k}$ positive diagonal with $\|D_1BD_1^{-1}\|_{\ell^r_k}\le\rho_r^{(k)}(B)+\epsilon$.
+Extend to $\Delta=\operatorname{diag}(D_1,I_{n-k})\in\mathbb{R}^{n\times n}$. Then
+$\Delta M\Delta^{-1}=\operatorname{diag}(D_1BD_1^{-1},0)$,
+so by the norm identity,
+$\|\Delta M\Delta^{-1}\|_{\ell^r_n}=\|D_1BD_1^{-1}\|_{\ell^r_k}\le\rho_r^{(k)}(B)+\epsilon$.
+Hence $\rho_r^{(n)}(M)\le\rho_r^{(k)}(B)+\epsilon$. Since $\epsilon>0$ is arbitrary, $\rho_r^{(n)}(M)\le\rho_r^{(k)}(B)$.
+
+Combining both bounds, $\rho_r^{(n)}(M)=\rho_r^{(k)}(B)$.
+\end{proof}

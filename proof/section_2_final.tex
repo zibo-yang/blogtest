@@ -1,0 +1,44 @@
+Let
+\[
+H=\frac{1}{2}
+\begin{pmatrix}
+1&1&1&1\\
+1&1&-1&-1\\
+1&-1&1&-1\\
+1&-1&-1&1
+\end{pmatrix}\in\mathbb{R}^{4\times4}.
+\]
+Note that $H^TH=I$ (the rows of $H$ are orthonormal), so $H$ is orthogonal.
+
+\begin{theorem}\label{thm:hadamard-norm}
+For every $r\in[2,\infty)$,
+\[
+\|H\|_{\ell^r_4\to\ell^r_4} = 4^{1/2-1/r}.
+\]
+\end{theorem}
+
+\begin{proof}
+Write $\|H\|_r:=\|H\|_{\ell^r_4\to\ell^r_4}$.
+
+\textbf{Case $r=2$.} Since $H^TH=I$, for every $x\in\mathbb{R}^4$,
+$\|Hx\|_2^2=x^TH^THx=x^Tx=\|x\|_2^2$,
+so $\|H\|_2=1=4^0=4^{1/2-1/2}$.
+
+\textbf{Case $r=\infty$.} Each entry of $H$ has absolute value $1/2$, so for any $x$,
+$|(Hx)_i|\le\frac{1}{2}\sum_j|x_j|\le\frac{4}{2}\|x\|_\infty=2\|x\|_\infty$,
+giving $\|H\|_\infty\le2$. Equality is achieved by $x=(1,1,1,1)^T$: $Hx=(2,0,0,0)^T$, so $\|Hx\|_\infty/\|x\|_\infty=2$. Thus $\|H\|_\infty=2$.
+
+\textbf{Upper bound for $2<r<\infty$ via Riesz--Thorin.}
+Set $\theta=1-2/r\in(0,1)$. Then $1/r=(1-\theta)/2+\theta\cdot0$, confirming that $r$ lies at parameter $\theta$ between $p_0=2$ and $p_1=\infty$. The Riesz--Thorin interpolation theorem gives
+\[
+\|H\|_r\le\|H\|_2^{1-\theta}\|H\|_\infty^{\theta}=1^{1-\theta}\cdot2^\theta=2^{1-2/r}=4^{1/2-1/r}.
+\]
+
+\textbf{Lower bound.} Take $x=(1,1,1,1)^T$. Then $Hx=(2,0,0,0)^T$ (the first row of $H$ sums to $4\cdot\frac{1}{2}=2$; every other row sums to $0$). For any $r\in[2,\infty)$,
+\[
+\frac{\|Hx\|_r}{\|x\|_r}=\frac{(2^r)^{1/r}}{(1+1+1+1)^{1/r}}=\frac{2}{4^{1/r}}=4^{1/2-1/r}.
+\]
+Hence $\|H\|_r\ge4^{1/2-1/r}$.
+
+Combining both bounds, $\|H\|_r=4^{1/2-1/r}$ for all $r\in[2,\infty)$.
+\end{proof}
