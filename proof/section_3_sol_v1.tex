@@ -1,0 +1,179 @@
+We prove both identities by a direct factorization and finite linearity of coefficient extraction.
+
+Work formally in a Laurent-series setting, for instance over the coefficient field \(K=\mathbb{Q}(\lambda_1,\lambda_2)\). The residue map
+\[
+\operatorname{Res}_{h=0}:K((h))\to K,\qquad \operatorname{Res}_{h=0}[f(h)]=[h^{-1}]f(h),
+\]
+is \(K\)-linear. In particular, for any finite set \(S\) and any Laurent series \(f_k(h)\),
+\[
+\sum_{k\in S}\operatorname{Res}_{h=0}[f_k(h)]
+=
+\operatorname{Res}_{h=0}\!\left[\sum_{k\in S} f_k(h)\right].
+\]
+The finiteness of \(S\) is the only point needed here; no convergence issue is involved.
+
+---
+
+## The \(A\)-sum
+
+Let
+\[
+S_A=\{k\in\mathbb{Z}:1\le k\le l_1,\ k\equiv l_1\pmod 2\}.
+\]
+For \(k\in S_A\), compute \(P_A(h)q_A(h)^k\). By definition,
+\[
+q_A(h)^k
+=
+\frac{(h+\lambda_2)^k(h+\lambda_1-\lambda_2)^k(h-2\lambda_1)^k}
+{h^k(h-\lambda_1+\lambda_2)^k(h-2\lambda_1-\lambda_2)^k}.
+\]
+Therefore
+\begin{align*}
+P_A(h)q_A(h)^k
+&=
+(h-\lambda_1)^2
+(h+\lambda_2)^{l_2}
+(h+\lambda_1-\lambda_2)^{l_3}
+(h-\lambda_1+\lambda_2)^{l_1-l_2} \\
+&\quad\times
+(h-2\lambda_1-\lambda_2)^{l_1-l_3}
+(h-2\lambda_1)^{-2-2l_1} \\
+&\quad\times
+\frac{(h+\lambda_2)^k(h+\lambda_1-\lambda_2)^k(h-2\lambda_1)^k}
+{h^k(h-\lambda_1+\lambda_2)^k(h-2\lambda_1-\lambda_2)^k}.
+\end{align*}
+Combining like bases using the usual exponent laws for integer powers gives
+\begin{align*}
+P_A(h)q_A(h)^k
+&=
+h^{-k}(h-\lambda_1)^2
+(h+\lambda_2)^{k+l_2}
+(h+\lambda_1-\lambda_2)^{k+l_3} \\
+&\quad\times
+(h-\lambda_1+\lambda_2)^{l_1-l_2-k}
+(h-2\lambda_1-\lambda_2)^{l_1-l_3-k}
+(h-2\lambda_1)^{k-2-2l_1}.
+\end{align*}
+The right-hand side is exactly the integrand appearing in the definition of \(A(l_1,l_2,l_3,k)\). Hence
+\[
+A(l_1,l_2,l_3,k)
+=
+\operatorname{Res}_{h=0}\!\left[P_A(h)q_A(h)^k\right].
+\]
+
+Now sum over the parity-restricted finite set \(S_A\). By linearity of \(\operatorname{Res}_{h=0}\),
+\begin{align*}
+\sum_{\substack{1\le k\le l_1\\ k\equiv l_1\pmod 2}}
+A(l_1,l_2,l_3,k)
+&=
+\sum_{k\in S_A}
+\operatorname{Res}_{h=0}\!\left[P_A(h)q_A(h)^k\right] \\
+&=
+\operatorname{Res}_{h=0}\!\left[
+\sum_{k\in S_A} P_A(h)q_A(h)^k
+\right] \\
+&=
+\operatorname{Res}_{h=0}\!\left[
+P_A(h)\sum_{k\in S_A}q_A(h)^k
+\right].
+\end{align*}
+But by definition,
+\[
+\Phi_{l_1}(z)
+=
+\sum_{\substack{1\le k\le l_1\\ k\equiv l_1\pmod 2}} z^k,
+\]
+so substituting \(z=q_A(h)\) gives
+\[
+\sum_{k\in S_A}q_A(h)^k
+=
+\Phi_{l_1}(q_A(h)).
+\]
+Therefore
+\[
+\boxed{
+\sum_{\substack{1\le k\le l_1\\ k\equiv l_1\pmod2}} A(l_1,l_2,l_3,k)
+=
+\operatorname{Res}_{h=0}\!\left[P_A(h)\,\Phi_{l_1}(q_A(h))\right].
+}
+\]
+
+---
+
+## The \(B\)-sum
+
+Assume now that \(l_2\ge 1\), and define
+\[
+S_B=\{k\in\mathbb{Z}:1\le k\le l_2,\ k\equiv l_2\pmod 2\}.
+\]
+For \(k\in S_B\), we similarly compute
+\[
+q_B(h)^k
+=
+\frac{(h+\lambda_1)^k(h+\lambda_2-\lambda_1)^k(h-2\lambda_2)^k}
+{h^k(h-\lambda_2+\lambda_1)^k(h-2\lambda_2-\lambda_1)^k}.
+\]
+Thus
+\begin{align*}
+P_B(h)q_B(h)^k
+&=
+(h-\lambda_2)^2
+(h+\lambda_1)^{l_1}
+(h+\lambda_2-\lambda_1)^{l_3}
+(h-\lambda_2+\lambda_1)^{l_2-l_1} \\
+&\quad\times
+(h-2\lambda_2-\lambda_1)^{l_2-l_3}
+(h-2\lambda_2)^{-2-2l_2} \\
+&\quad\times
+\frac{(h+\lambda_1)^k(h+\lambda_2-\lambda_1)^k(h-2\lambda_2)^k}
+{h^k(h-\lambda_2+\lambda_1)^k(h-2\lambda_2-\lambda_1)^k}.
+\end{align*}
+Combining powers gives
+\begin{align*}
+P_B(h)q_B(h)^k
+&=
+h^{-k}(h-\lambda_2)^2
+(h+\lambda_1)^{k+l_1}
+(h+\lambda_2-\lambda_1)^{k+l_3} \\
+&\quad\times
+(h-\lambda_2+\lambda_1)^{l_2-l_1-k}
+(h-2\lambda_2-\lambda_1)^{l_2-l_3-k}
+(h-2\lambda_2)^{k-2-2l_2}.
+\end{align*}
+This is exactly the integrand defining \(B(l_1,l_2,l_3,k)\). Hence
+\[
+B(l_1,l_2,l_3,k)
+=
+\operatorname{Res}_{h=0}\!\left[P_B(h)q_B(h)^k\right].
+\]
+
+Using finite linearity of the residue,
+\begin{align*}
+\sum_{\substack{1\le k\le l_2\\ k\equiv l_2\pmod 2}}
+B(l_1,l_2,l_3,k)
+&=
+\sum_{k\in S_B}
+\operatorname{Res}_{h=0}\!\left[P_B(h)q_B(h)^k\right] \\
+&=
+\operatorname{Res}_{h=0}\!\left[
+\sum_{k\in S_B}P_B(h)q_B(h)^k
+\right] \\
+&=
+\operatorname{Res}_{h=0}\!\left[
+P_B(h)\sum_{k\in S_B}q_B(h)^k
+\right] \\
+&=
+\operatorname{Res}_{h=0}\!\left[
+P_B(h)\Phi_{l_2}(q_B(h))
+\right].
+\end{align*}
+Therefore
+\[
+\boxed{
+\sum_{\substack{1\le k\le l_2\\ k\equiv l_2\pmod2}} B(l_1,l_2,l_3,k)
+=
+\operatorname{Res}_{h=0}\!\left[P_B(h)\,\Phi_{l_2}(q_B(h))\right].
+}
+\]
+
+Both desired compressed residue identities follow.

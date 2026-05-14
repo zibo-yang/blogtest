@@ -1,0 +1,20 @@
+\section{Conclusion: Existence of a Time-Periodic Solution}
+
+\begin{theorem}\label{thm:main}
+There exists a non-zero, time-periodic solution $(y, T)$ with $T > 0$ of the KdV equation
+\[
+y_t + y_{xxx} + y_x + y\,y_x = 0, \qquad y(t,0) = y(t,L) = y_x(t,L) = 0,
+\]
+with $L = 2\pi\sqrt{7/3}$.
+\end{theorem}
+
+\begin{proof}
+By Proposition~\ref{prop:matching}, there exists $a_* \in (0, 3/2)$ such that $P(a_*) = 2\pi\sqrt{7/3} = L$.
+
+By Proposition~\ref{prop:negative-loop}, there exists a nonzero function $u_{a_*} \in C^3([0, L])$ satisfying
+\[
+u_{a_*}'' + u_{a_*} + \tfrac{1}{2}\,u_{a_*}^2 = C_{a_*}, \qquad u_{a_*}(0) = u_{a_*}'(0) = u_{a_*}(L) = u_{a_*}'(L) = 0.
+\]
+
+By Lemma~\ref{lem:stationary}, for any $T > 0$ (say $T = 1$), the function $y(t,x) = u_{a_*}(x)$ is a nonzero $T$-periodic classical solution of the KdV equation with the prescribed boundary conditions.
+\end{proof}

@@ -1,0 +1,110 @@
+Let  
+
+\[
+X_{1}= \lambda _1^{-l_{1}-1}\lambda _2^{-l_{2}-1}\lambda _3^{-l_{3}-1},\qquad   
+X_{2}= -\lambda _1^{-2l_{1}-2}\lambda _2^{-2l_{2}-2}(\lambda _1+\lambda _2)^{-2l_{3}-2}\,R,
+\]
+\[
+Y     = \frac18\,
+        \lambda _1^{-2l_{1}-1}\lambda _2^{-2l_{2}-1}\lambda _3^{-2l_{3}-1}\,Q .
+\]
+
+Assume for the moment that the identity  
+
+\[
+Y \;=\; X_{2}+\frac18\,X_{1} \tag{1}
+\]
+
+holds.  We shall extract from it the asserted formula
+
+\[
+R=\frac18\Bigl(\lambda _1^{\,l_{1}+1}\lambda _2^{\,l_{2}+1}\lambda _3^{\,l_{3}+1}
+               -\lambda _1\lambda _2\lambda _3\,Q\Bigr). \tag{2}
+\]
+
+(The converse implication will then be immediate by reversing the steps.)
+
+--------------------------------------------------------------------
+1.  Pull out a common monomial factor
+--------------------------------------------------------------------
+
+Set  
+
+\[
+M:=\lambda _1^{-2l_{1}-2}\lambda _2^{-2l_{2}-2}\lambda _3^{-2l_{3}-2}.
+\]
+
+Because $-2l_{3}-2$ is even and $\lambda _3=-\lambda _1-\lambda _2$, we have  
+
+\[
+(\lambda _1+\lambda _2)^{-2l_{3}-2}
+      =(-\lambda _3)^{-2l_{3}-2}
+      =\lambda _3^{-2l_{3}-2}.  \tag{3}
+\]
+
+Write each term of (1) with the factor $M$:
+
+$\bullet$\enspace For $Y$:
+\[
+Y=\frac18\,\lambda _1^{-2l_{1}-1}\lambda _2^{-2l_{2}-1}\lambda _3^{-2l_{3}-1}Q
+  =\frac18\,M\;(\lambda _1\lambda _2\lambda _3)\,Q.  \tag{4}
+\]
+
+$\bullet$\enspace For $\frac18X_{1}$:
+\[
+\frac18X_{1}
+   =\frac18\,\lambda _1^{-l_{1}-1}\lambda _2^{-l_{2}-1}\lambda _3^{-l_{3}-1}
+   =\frac18\,M\;
+    \lambda _1^{\,l_{1}+1}\lambda _2^{\,l_{2}+1}\lambda _3^{\,l_{3}+1}. \tag{5}
+\]
+
+$\bullet$\enspace For $X_{2}$: apply (3):
+\[
+X_{2}= -\lambda _1^{-2l_{1}-2}\lambda _2^{-2l_{2}-2}\lambda _3^{-2l_{3}-2}R
+      =-M\,R. \tag{6}
+\]
+
+--------------------------------------------------------------------
+2.  Substitute in (1)
+--------------------------------------------------------------------
+
+Insert (4)--(6) into $Y=X_{2}+\frac18X_{1}$:
+
+\[
+\frac18\,M(\lambda _1\lambda _2\lambda _3Q)
+   \;=\;
+   -M\,R
+   \;+\;
+   \frac18\,M\,
+         \lambda _1^{\,l_{1}+1}\lambda _2^{\,l_{2}+1}\lambda _3^{\,l_{3}+1}.
+\]
+
+Divide by the non-zero common factor $M$:
+
+\[
+\frac18\bigl(\lambda _1\lambda _2\lambda _3Q\bigr)
+   \;=\;
+   -R
+   \;+\;
+   \frac18\,
+        \lambda _1^{\,l_{1}+1}\lambda _2^{\,l_{2}+1}\lambda _3^{\,l_{3}+1}.
+\]
+
+--------------------------------------------------------------------
+3.  Isolate $R$
+--------------------------------------------------------------------
+
+Re-arranging gives
+
+\[
+R=\frac18\Bigl(\lambda _1^{\,l_{1}+1}\lambda _2^{\,l_{2}+1}\lambda _3^{\,l_{3}+1}
+               -\lambda _1\lambda _2\lambda _3\,Q\Bigr),
+\]
+
+which is exactly (2).
+
+--------------------------------------------------------------------
+4.  Converse implication
+--------------------------------------------------------------------
+
+Conversely, if (2) holds, start from (6) and substitute the right-hand side of (2); then reverse the algebraic steps above to obtain (1). Therefore (1) and (2) are equivalent, completing the proof. $\square$

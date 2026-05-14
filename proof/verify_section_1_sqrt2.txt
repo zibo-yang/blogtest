@@ -1,0 +1,7 @@
+Anchor: Theorem 1  
+Location: “Since \(r\) is rational, there exist integers \(p\) and \(q\) with \(q \neq 0\) such that \(r = \frac{p}{q}\) and \(\gcd(p,q)=1\).”  
+Description: Justification Gap — Rationality gives a representation \(r=p/q\) with integers \(p,q\) and \(q\neq 0\), but the existence of such a representation with \(\gcd(p,q)=1\) requires an additional result about reducing fractions to lowest terms, which is not stated or justified.
+
+Anchor: Theorem 1  
+Location: “if an integer \(n\) were odd, then \(n=2m+1\) for some integer \(m\), and hence … \(n^2\) … is odd. Therefore, an integer whose square is even must itself be even.”  
+Description: Justification Gap — The argument proves that odd integers have odd squares, but the conclusion that an integer with even square must itself be even also requires the parity dichotomy/exclusivity for integers, or an explicit contrapositive argument. These facts are not stated or justified.

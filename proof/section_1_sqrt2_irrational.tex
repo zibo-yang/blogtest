@@ -1,0 +1,51 @@
+\begin{theorem}
+$\sqrt{2}$ is irrational; that is, there is no rational number $r$ such that $r^2=2$.
+\end{theorem}
+
+\begin{proof}
+We first record two elementary facts that will be used in the proof.
+
+First, every rational number has a representation with no common divisor greater than $1$. Indeed, let $r\in\mathbb{Q}$. By definition, there exist integers $a,b$ with $b\neq 0$ such that
+\[
+r=\frac{a}{b}.
+\]
+Replacing both $a$ and $b$ by their negatives if necessary, we may assume $b>0$. Consider the set
+\[
+D=\bigl\{s\in\mathbb{Z}_{>0}:\text{ there exists }t\in\mathbb{Z}\text{ such that }r=\tfrac{t}{s}\bigr\}.
+\]
+This set is nonempty, since $b\in D$. By the well-ordering principle, $D$ has a least element; call it $q$. Choose $p\in\mathbb{Z}$ such that
+\[
+r=\frac{p}{q}.
+\]
+We claim that no integer $d>1$ divides both $p$ and $q$. If such a $d$ existed, then $p=dp'$ and $q=dq'$ for some integers $p',q'$, with $q'>0$. Then
+\[
+r=\frac{p}{q}=\frac{dp'}{dq'}=\frac{p'}{q'},
+\]
+and since $d>1$, we have $0<q'<q$. This contradicts the minimality of $q$. Hence this representation satisfies $\gcd(p,q)=1$.
+
+Second, we establish the parity lemma: if $n^2$ is even, then $n$ is even. By the division algorithm with divisor $2$, every integer $n$ can be written in exactly one of the two forms
+\[
+n=2m \qquad \text{or} \qquad n=2m+1
+\]
+for some integer $m$. If $n=2m$, then $n$ is even. If instead $n=2m+1$, then
+\[
+n^2=(2m+1)^2=4m^2+4m+1=2(2m^2+2m)+1,
+\]
+which is odd. Therefore, since every integer is either even or odd (exclusively), an integer whose square is even must itself be even.
+
+Now suppose, for contradiction, that there exists a rational number $r$ such that $r^2=2$. By the reduced-representation fact proved above, choose integers $p,q$ with $q>0$ such that $r=p/q$ and $\gcd(p,q)=1$. Substituting into $r^2=2$ gives
+\[
+\left(\frac{p}{q}\right)^2=2.
+\]
+Multiplying by $q^2$ yields
+\[
+p^2=2q^2.
+\]
+Thus $p^2$ is even. By the parity lemma, $p$ is even, so there exists $k\in\mathbb{Z}$ such that $p=2k$. Substituting,
+\[
+4k^2=2q^2,
+\]
+so $2k^2=q^2$. Hence $q^2$ is even. By the same parity lemma, $q$ is even.
+
+Thus $2$ divides both $p$ and $q$, contradicting $\gcd(p,q)=1$. Therefore no rational number $r$ satisfies $r^2=2$, and hence $\sqrt{2}$ is irrational.
+\end{proof}

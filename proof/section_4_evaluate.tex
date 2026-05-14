@@ -1,0 +1,74 @@
+\subsection*{Section 4: Numerical Verification and Counterexample}
+
+\textbf{Status:} The identity $Y = X_2 + \frac18 X_1$ as stated in Conjecture~1 is \textbf{false} for $l_1 \ge 1$ under the given formulas for $A$ and $B$. Sections 1--3 establish correct structural lemmas; the central claim (Section~4) fails numerically.
+
+\medskip
+
+\textbf{Explicit counterexample.}
+Take
+\[
+  l_1 = 1,\quad l_2 = 0,\quad l_3 = -3,\qquad \lambda_1 = 1,\quad \lambda_2 = 2,\quad \lambda_3 = -3.
+\]
+One checks $l_1+l_2+l_3 = -2$, $l_1\ge l_2\ge l_3$, and $\lambda_1+\lambda_2+\lambda_3 = 0$.
+
+\medskip
+\textit{Computation of $A(1,0,-3,1)$.}
+The sum defining $R$ has a single term $k=1$ (since $1\le k\le l_1=1$ and $k\equiv l_1=1\pmod{2}$), and $\sum B = 0$ since $l_2=0$.
+
+Substituting into the formula for $A$:
+\begin{align*}
+  A(1,0,-3,1) &= \operatorname{Res}_{h=0}\bigl[h^{-1}(h-1)^2(h+2)^1(h-1)^{-2}(h+1)^0(h-4)^3(h-2)^{-3}\bigr]\\
+  &= \operatorname{Res}_{h=0}\bigl[h^{-1}(h+2)(h-4)^3(h-2)^{-3}\bigr].
+\end{align*}
+Since the remaining factors $(h+2)(h-4)^3(h-2)^{-3}$ evaluate to
+\[
+  (0+2)(0-4)^3(0-2)^{-3} = 2\cdot(-64)\cdot(-\tfrac18) = 16
+\]
+at $h=0$, we get $A(1,0,-3,1) = 16$.
+
+\medskip
+\textit{Computation of $X_2$.}
+\[
+  X_2 = -\lambda_1^{-4}\lambda_2^{-2}(\lambda_1+\lambda_2)^4\cdot 16
+       = -(1)\cdot\tfrac14\cdot 81\cdot 16 = -324.
+\]
+
+\textit{Computation of $X_1$ and $(1/8)X_1$.}
+\[
+  X_1 = \lambda_1^{-2}\lambda_2^{-1}\lambda_3^{2} = 1\cdot\tfrac12\cdot 9 = \tfrac92,\qquad
+  \tfrac18 X_1 = \tfrac{9}{16}.
+\]
+
+\textit{Right-hand side.}
+\[
+  X_2 + \tfrac18 X_1 = -324 + \tfrac{9}{16} = -\frac{5175}{16}.
+\]
+
+\textit{Computation of $Y$.}
+We have $\bar l_1=1$, $\sigma(1)=1$; $\bar l_2=0$, $\sigma(0)=0$; $\bar l_3=2$, $\sigma(2)=3$; and $l_1l_3=-3$.  Hence
+\[
+  Q = 1\cdot\lambda_1^{-2} + 3\cdot\lambda_3^{-2} + (-3)\cdot\lambda_1^{-1}\lambda_3^{-1}
+    = 1 + \tfrac{1}{3} + 1 = \tfrac{7}{3}.
+\]
+Therefore
+\[
+  Y = \tfrac18\,\lambda_1^{-3}\lambda_2^{-1}\lambda_3^{5}\,Q
+    = \tfrac18\cdot 1\cdot\tfrac12\cdot(-243)\cdot\tfrac73
+    = -\frac{567}{16}.
+\]
+
+\textit{Conclusion.}
+\[
+  Y = -\frac{567}{16} \;\neq\; -\frac{5175}{16} = X_2+\tfrac18 X_1.
+\]
+The identity fails by $\frac{567-5175}{16} = -288$.
+
+\medskip
+\textbf{Systematic failure.}  Exact arithmetic (using Python's \texttt{fractions} module) confirms the identity also fails for:
+$(l_1,l_2,l_3) \in \{(1,-1,-2),\,(2,0,-4),\,(2,1,-5)\}$ with $(\lambda_1,\lambda_2)=(1,2)$; and for
+$(1,0,-3)$ with $(\lambda_1,\lambda_2)=(1,3)$. The boundary cases $l_1=0$ (i.e., $(0,0,-2)$ and $(0,-1,-1)$) are verified correct by Section~2, as both residue sums are empty there.
+
+\medskip
+\textbf{Diagnosis.}  The formulas for $A$ and $B$ and the prefactor $(\lambda_1+\lambda_2)^{-2l_3-2}$ in $X_2$, as transcribed from the OCR'd problem statement, appear to contain a typographic error in the exponent of $(\lambda_1+\lambda_2)$. Numerical evidence suggests the exponent $-2l_3-2$ should instead be $-l_3-1 = l_1+l_2+1$ in the cases where $l_2\le0$, but even this substitution fails for $l_2\ge1$, indicating a deeper error in the formulas for $A$ and/or $B$ themselves.
+
+The three structural lemmas --- normalization (Section~1), boundary-case verification (Section~2), and compression of parity-restricted sums into single residues (Section~3) --- are all correct and verified, and would remain valid for any corrected version of the conjecture.

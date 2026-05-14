@@ -1,0 +1,32 @@
+PESSIMISTIC VERIFICATION REPORT
+================================
+Solution: proof/section_1_sqrt2_irrational.tex
+Problem:  proof/problem.tex
+Mode:     pessimistic (3 independent verifier runs)
+Date:     2026-05-14
+
+VERDICT: CLEAN
+
+No issues were flagged by any of the three independent verifier runs.
+
+--- Issue List ---
+(none)
+
+All three runs independently returned "The solution is correct."
+Under pessimistic rules, all three runs must be CLEAN for the solution to be
+deemed CLEAN. This condition is satisfied.
+
+==========================================================================
+APPENDIX A — Run 1 full output (verify_section_1_sqrt2_irrational_run1.txt)
+==========================================================================
+The solution is correct.
+
+==========================================================================
+APPENDIX B — Run 2 full output (verify_section_1_sqrt2_irrational_run2.txt)
+==========================================================================
+The solution is correct.
+
+==========================================================================
+APPENDIX C — Run 3 full output (verify_section_1_sqrt2_irrational_run3.txt)
+==========================================================================
+The solution is correct.

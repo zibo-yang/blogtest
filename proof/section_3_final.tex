@@ -1,0 +1,59 @@
+\begin{theorem}\label{thm:rho-hadamard}
+For every $r\in[2,\infty)$,
+\[
+\rho_r^{(4)}(H) = 4^{1/2-1/r},
+\]
+where $H$ is the normalized $4\times4$ Hadamard matrix of Section~\ref{sec:hadamard}.
+\end{theorem}
+
+\begin{proof}
+Let $q=r/(r-1)$ be the conjugate exponent, so $1/r+1/q=1$.
+
+\textbf{Upper bound.} Choosing $\Delta=I_4$, we get $\rho_r^{(4)}(H)\le\|I_4HI_4^{-1}\|_r=\|H\|_r=4^{1/2-1/r}$ by Theorem~\ref{thm:hadamard-norm}.
+
+\textbf{Row-norm lower bound (key lemma).}
+For any matrix $A=(a_{ij})\in\mathbb{R}^{n\times n}$ and any row index $i$,
+\[
+\|A\|_{\ell^r\to\ell^r}\ge\Bigl(\sum_{j=1}^n|a_{ij}|^q\Bigr)^{1/q}.
+\]
+\emph{Proof.} For any $x\in\mathbb{R}^n$, $\|Ax\|_r\ge|(Ax)_i|=|\sum_j a_{ij}x_j|$. By H\"{o}lder's inequality,
+$|\sum_j a_{ij}x_j|\le\bigl(\sum_j|a_{ij}|^q\bigr)^{1/q}\|x\|_r$,
+so $\|A\|_r\ge\sup_{\|x\|_r=1}|\sum_j a_{ij}x_j|$.
+To prove equality (when $a^{(i)}\ne0$), set $S:=\sum_j|a_{ij}|^q>0$ and
+\[
+x_j:=\frac{\operatorname{sgn}(a_{ij})|a_{ij}|^{q-1}}{\|a^{(i)}\|_q^{q-1}},
+\quad\text{where }\|a^{(i)}\|_q=S^{1/q}.
+\]
+Then, using $(q-1)r=q$ (which holds since $1/r+1/q=1$):
+\[
+\|x\|_r^r=\sum_j\frac{|a_{ij}|^{(q-1)r}}{\|a^{(i)}\|_q^{(q-1)r}}
+=\frac{\sum_j|a_{ij}|^q}{\|a^{(i)}\|_q^q}=\frac{S}{S}=1,
+\]
+and
+\[
+\sum_j a_{ij}x_j=\frac{\sum_j|a_{ij}|^q}{\|a^{(i)}\|_q^{q-1}}=\frac{S}{S^{(q-1)/q}}=S^{1/q}=\|a^{(i)}\|_q.
+\]
+Hence the supremum equals $\|a^{(i)}\|_q$, proving the lemma.
+
+\textbf{Lower bound for all $\Delta$.}
+Let $\Delta=\operatorname{diag}(\delta_1,\delta_2,\delta_3,\delta_4)$ with $\delta_i>0$, and set $C=\Delta H\Delta^{-1}$. Since $|h_{ij}|=1/2$ for all $i,j$, we have $|c_{ij}|=\delta_i/(2\delta_j)$.
+
+Choose $m$ with $\delta_m=\max_i\delta_i$. Then $\delta_m/\delta_j\ge1$ for all $j$, so every entry in row $m$ of $C$ satisfies $|c_{mj}|=\delta_m/(2\delta_j)\ge 1/2$. Applying the row-norm lower bound to row $m$:
+\[
+\|C\|_r
+\ge
+\Bigl(\sum_{j=1}^4|c_{mj}|^q\Bigr)^{1/q}
+\ge
+\Bigl(\sum_{j=1}^4\Bigl(\tfrac{1}{2}\Bigr)^q\Bigr)^{1/q}
+=
+\bigl(4\cdot 2^{-q}\bigr)^{1/q}
+=
+\frac{4^{1/q}}{2}.
+\]
+Since $1/q=1-1/r$, we have $4^{1/q}/2=4^{1-1/r}/2=4^{1-1/r-1/2}=4^{1/2-1/r}$.
+
+Therefore $\|\Delta H\Delta^{-1}\|_r\ge4^{1/2-1/r}$ for every positive diagonal $\Delta$.
+Taking the infimum gives $\rho_r^{(4)}(H)\ge4^{1/2-1/r}$.
+
+Combining both bounds, $\rho_r^{(4)}(H)=4^{1/2-1/r}$.
+\end{proof}
