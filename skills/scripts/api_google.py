@@ -4,6 +4,14 @@ import os
 import sys
 import time
 
+# Ensure project-local package directories are on sys.path
+_this_dir = os.path.dirname(os.path.abspath(__file__))
+_proj_dir = os.path.dirname(os.path.dirname(_this_dir))
+for _d in ("pyextra", ".pylibs", "pip_pkgs"):
+    _p = os.path.join(_proj_dir, _d)
+    if os.path.isdir(_p) and _p not in sys.path:
+        sys.path.insert(0, _p)
+
 from google import genai
 from google.genai.types import Tool, GoogleSearch
 
