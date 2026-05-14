@@ -1,0 +1,48 @@
+\section{Stationary Profile Criterion}
+
+\begin{lemma}\label{lem:stationary}
+Let $L > 0$ and suppose there exist $C \in \mathbb{R}$ and a nonzero function $u \in C^3([0,L])$ such that
+\[
+u''(x) + u(x) + \tfrac{1}{2}\,u(x)^2 = C, \qquad u(0) = u'(0) = u(L) = u'(L) = 0.
+\]
+Then for every $T > 0$, the function $y(t,x) = u(x)$ is a nonzero $T$-periodic classical solution of
+\[
+y_t + y_{xxx} + y_x + y\,y_x = 0, \qquad y(t,0) = y(t,L) = y_x(t,L) = 0.
+\]
+\end{lemma}
+
+\begin{proof}
+Let $T > 0$ be arbitrary and define
+\[
+y(t,x) := u(x), \qquad (t,x) \in \mathbb{R} \times [0,L].
+\]
+Since $u \in C^3([0,L])$, the function $y$ is classical in the sense needed for the PDE: it is $C^1$ in $t$ and $C^3$ in $x$, with
+\[
+y_t(t,x) = 0, \qquad y_x(t,x) = u'(x), \qquad y_{xxx}(t,x) = u'''(x).
+\]
+
+Now differentiate the given integrated ODE
+\[
+u''(x) + u(x) + \tfrac{1}{2}\,u(x)^2 = C
+\]
+with respect to $x$. Since $u \in C^3([0,L])$ and $C$ is constant, for $x \in (0,L)$ we get
+\[
+u'''(x) + u'(x) + u(x)\,u'(x) = 0.
+\]
+
+Therefore, for every $(t,x) \in \mathbb{R} \times (0,L)$,
+\[
+y_t + y_{xxx} + y_x + y\,y_x = 0 + u'''(x) + u'(x) + u(x)\,u'(x) = 0.
+\]
+
+The boundary conditions follow immediately from the hypotheses on $u$:
+\[
+y(t,0) = u(0) = 0, \qquad y(t,L) = u(L) = 0, \qquad y_x(t,L) = u'(L) = 0.
+\]
+
+Finally, since $y$ is independent of $t$, for every $T > 0$,
+\[
+y(t+T, x) = u(x) = y(t,x),
+\]
+so $y$ is $T$-periodic in time. Because $u$ is nonzero, the function $y(t,x) = u(x)$ is also nonzero.
+\end{proof}

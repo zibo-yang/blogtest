@@ -1,0 +1,7 @@
+Anchor: Theorem thm:padding  
+Location: “Hence for \(u\ne0\), … Taking the supremum over nonzero \(x\) gives \(\le\|C\|_{\ell^r_k}\).”  
+Description: Justification Gap. The argument only treats nonzero \(x=(u,v)\) with \(u\ne0\), but then takes the supremum over all nonzero \(x\). The case \(u=0,\ v\ne0\) is not explicitly handled.
+
+Anchor: Theorem thm:rho-hadamard  
+Location: “set \(x_j=\operatorname{sgn}(a_{ij})|a_{ij}|^{q-1}\bigl(\sum_j|a_{ij}|^q\bigr)^{(1-q)}\). Then \(\|x\|_r^r=\sum_j|a_{ij}|^{(q-1)r}\bigl(\sum_j|a_{ij}|^q\bigr)^{(1-q)r}=1\) … and \(\sum_j a_{ij}x_j=\bigl(\sum_j|a_{ij}|^q\bigr)^{1/q}\).”  
+Description: Critical Error. The displayed normalization calculation is false. If \(S=\sum_j |a_{ij}|^q\), the proposed vector gives \(\|x\|_r^r=S^{1-q}\), not \(1\), and the resulting dot product is not generally \(S^{1/q}\). Thus the proof of the row-norm lower bound is invalid, breaking the lower-bound argument for \(\rho_r^{(4)}(H)\).

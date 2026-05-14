@@ -1,0 +1,38 @@
+\begin{proof}[Proof of Theorem~\ref{thm:conj3}]
+Let $n>6$ and $p>2$ be integers. Since $n\ge7$, we have $n-4\ge3\ge0$, so the block matrix
+\[
+M=\operatorname{diag}(H,0_{n-4})\in\mathbb{R}^{n\times n}
+\]
+is well-defined, where $H$ is the $4\times4$ normalized Hadamard matrix.
+
+\textbf{Computing $\rho_p^{(n)}(M)$.}
+By Theorem~\ref{thm:padding} (zero-padding) with $k=4$ and $B=H$:
+\[
+\rho_p^{(n)}(M)=\rho_p^{(4)}(H).
+\]
+Since $p\ge3>2$, Theorem~\ref{thm:rho-hadamard} applies with $r=p$:
+\[
+\rho_p^{(4)}(H)=4^{1/2-1/p}.
+\]
+
+\textbf{Computing $\rho_{p+1}^{(n)}(M)$.}
+By Theorem~\ref{thm:padding} with $k=4$ and $B=H$:
+\[
+\rho_{p+1}^{(n)}(M)=\rho_{p+1}^{(4)}(H).
+\]
+Since $p+1\ge4>2$, Theorem~\ref{thm:rho-hadamard} applies with $r=p+1$:
+\[
+\rho_{p+1}^{(4)}(H)=4^{1/2-1/(p+1)}.
+\]
+
+\textbf{Comparison.}
+Since $p\ge3$, we have $p<p+1$, so $1/p>1/(p+1)$, hence
+\[
+\frac{1}{2}-\frac{1}{p}<\frac{1}{2}-\frac{1}{p+1}.
+\]
+The function $x\mapsto4^x$ is strictly increasing, so
+\[
+\rho_p(M)=4^{1/2-1/p}<4^{1/2-1/(p+1)}=\rho_{p+1}(M).
+\]
+This exhibits an explicit $n\times n$ matrix $M$ with $\rho_p(M)<\rho_{p+1}(M)$, proving Conjecture~3.
+\end{proof}

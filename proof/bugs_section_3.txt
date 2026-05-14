@@ -1,0 +1,19 @@
+Verification Report for proof/section_3_matching_length.tex
+===========================================================
+
+Problem: Proposition 3 -- continuity of P(a), boundary limits, and existence of a* with P(a*) = 2*pi*sqrt(7/3).
+Mode: standard
+Verifier: OpenAI (gpt-5.5) via proof_verifier.py
+
+Result: CLEAN
+
+The verifier found no critical errors and no justification gaps.
+
+Note: An initial run using the full problem.tex (which describes the broader KdV existence problem)
+produced a spurious "global justification gap" because the verifier expected the section to prove
+the entire KdV result rather than just Proposition 3. A second run with the correctly scoped
+problem statement (Proposition 3 only) returned "The solution is correct."
+
+Full verifier output:
+---------------------
+The solution is correct.

@@ -1,0 +1,39 @@
+ISSUES_FOUND: count=3, solution=proof/section_4_conclusion.tex, mode=standard
+
+All three issues are justification gaps flagged by the verifier. The verifier evaluated
+section_4_conclusion.tex in isolation and found that every external result invoked
+(Proposition 3, Proposition 2, Lemma 1) is neither stated nor proved within the
+submitted file. Because the verifier only sees the single file it was given, these
+appear as unsupported appeals.
+
+Whether these are true gaps or artifacts of per-section verification depends on
+whether the companion sections (section_1, section_2, section_3) fully establish
+the referenced results. That determination is outside the scope of this run.
+
+------------------------------------------------------------------------
+Issue 1  [Justification Gap]
+  Anchor : Theorem thm:main
+  Location: "By Proposition~\ref{prop:matching}, there exists a_* in (0, 3/2)
+             such that P(a_*) = 2 pi sqrt(7/3) = L."
+  Detail : Proposition prop:matching is invoked but neither stated nor proved in
+           the provided solution. The function P is also not defined.
+
+Issue 2  [Justification Gap]
+  Anchor : Theorem thm:main
+  Location: "By Proposition~\ref{prop:negative-loop}, there exists a nonzero
+             function u_{a_*} in C^3([0,L]) satisfying the stated ODE and BCs."
+  Detail : Proposition prop:negative-loop is invoked but neither stated nor
+           proved in the provided solution.
+
+Issue 3  [Justification Gap]
+  Anchor : Theorem thm:main
+  Location: "By Lemma~\ref{lem:stationary}, ... y(t,x) = u_{a_*}(x) is a
+             nonzero T-periodic classical solution ..."
+  Detail : Lemma lem:stationary is invoked but neither stated nor proved in the
+           provided solution. The passage from the second-order ODE + boundary
+           data to a classical stationary solution of the third-order KdV BVP
+           is not explicitly justified.
+
+------------------------------------------------------------------------
+Appendix: Full verifier output
+  File: /Users/avalon/numina-projects/9a90f875-3b1f-4577-bb48-789690914aca/PedvfcUC8hQSdQ/proof/verify_section_4.txt

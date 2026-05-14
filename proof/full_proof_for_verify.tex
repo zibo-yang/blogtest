@@ -1,0 +1,471 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,xcolor}
+
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}[lemma]{Proposition}
+\newtheorem{theorem}[lemma]{Theorem}
+
+\title{Time-Periodic Solutions of a KdV Equation at a Critical Length}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Problem Statement}
+
+Consider the Korteweg--de Vries (KdV) equation on the interval $x \in (0, L)$:
+\begin{equation}\label{eq:kdv}
+y_t + y_{xxx} + y_x + y\, y_x = 0,
+\end{equation}
+with boundary conditions
+\begin{equation}\label{eq:bc}
+y(t, 0) = y(t, L) = y_x(t, L) = 0,
+\end{equation}
+where $L$ belongs to the critical length set
+\[
+\mathcal{N} := \left\{ 2\pi \sqrt{\frac{k^2 + kl + l^2}{3}} : k, l \in \mathbb{Z}_{>0} \right\}
+\]
+introduced by Rosier (1997).
+
+\medskip\noindent
+\textbf{Task.} Take $k = 2$, $l = 1$, so that
+\[
+L = 2\pi \sqrt{\frac{4 + 2 + 1}{3}} = 2\pi\sqrt{\frac{7}{3}}.
+\]
+Prove the existence of a non-zero, time-periodic solution $(y, T)$ with $T > 0$ to equations~\eqref{eq:kdv}--\eqref{eq:bc} with this value of $L$.
+
+\medskip\noindent
+\textbf{Overview of the proof.} Rather than employing the Lyapunov--Schmidt bifurcation approach suggested by the hint, we observe that any nonzero stationary solution $y(t,x) = u(x)$ is automatically $T$-periodic for every $T > 0$. We reduce the PDE to a second-order ODE boundary value problem via a first integral, construct a one-parameter family of negative-loop orbits using phase-plane analysis, and show by the intermediate value theorem that one member of this family has spatial period exactly $L = 2\pi\sqrt{7/3}$.
+
+%% Section 1: Stationary Profile Criterion
+\section{Stationary Profile Criterion}
+
+\begin{lemma}\label{lem:stationary}
+Let $L > 0$ and suppose there exist $C \in \mathbb{R}$ and a nonzero function $u \in C^3([0,L])$ such that
+\[
+u''(x) + u(x) + \tfrac{1}{2}\,u(x)^2 = C, \qquad u(0) = u'(0) = u(L) = u'(L) = 0.
+\]
+Then for every $T > 0$, the function $y(t,x) = u(x)$ is a nonzero $T$-periodic classical solution of
+\[
+y_t + y_{xxx} + y_x + y\,y_x = 0, \qquad y(t,0) = y(t,L) = y_x(t,L) = 0.
+\]
+\end{lemma}
+
+\begin{proof}
+Let $T > 0$ be arbitrary and define
+\[
+y(t,x) := u(x), \qquad (t,x) \in \mathbb{R} \times [0,L].
+\]
+Since $u \in C^3([0,L])$, the function $y$ is classical in the sense needed for the PDE: it is $C^1$ in $t$ and $C^3$ in $x$, with
+\[
+y_t(t,x) = 0, \qquad y_x(t,x) = u'(x), \qquad y_{xxx}(t,x) = u'''(x).
+\]
+
+Now differentiate the given integrated ODE
+\[
+u''(x) + u(x) + \tfrac{1}{2}\,u(x)^2 = C
+\]
+with respect to $x$. Since $u \in C^3([0,L])$ and $C$ is constant, for $x \in (0,L)$ we get
+\[
+u'''(x) + u'(x) + u(x)\,u'(x) = 0.
+\]
+
+Therefore, for every $(t,x) \in \mathbb{R} \times (0,L)$,
+\[
+y_t + y_{xxx} + y_x + y\,y_x = 0 + u'''(x) + u'(x) + u(x)\,u'(x) = 0.
+\]
+
+The boundary conditions follow immediately from the hypotheses on $u$:
+\[
+y(t,0) = u(0) = 0, \qquad y(t,L) = u(L) = 0, \qquad y_x(t,L) = u'(L) = 0.
+\]
+
+Finally, since $y$ is independent of $t$, for every $T > 0$,
+\[
+y(t+T, x) = u(x) = y(t,x),
+\]
+so $y$ is $T$-periodic in time. Because $u$ is nonzero, the function $y(t,x) = u(x)$ is also nonzero.
+\end{proof}
+
+%% Section 2: Construction of Negative-Loop Stationary Profiles
+\section{Construction of Negative-Loop Stationary Profiles}
+
+\begin{proposition}\label{prop:negative-loop}
+For every $a \in (0, 3/2)$, define
+\[
+C_a = -\frac{a}{2} + \frac{a^2}{6}
+\]
+and
+\[
+P(a) = 2\int_0^a \frac{dv}{\sqrt{v(a-v)\!\left(1 - \frac{a+v}{3}\right)}}.
+\]
+There exists a nonzero function $u_a \in C^3([0, P(a)])$ such that
+\[
+u_a'' + u_a + \tfrac{1}{2}\,u_a^2 = C_a, \qquad u_a(0) = u_a'(0) = u_a(P(a)) = u_a'(P(a)) = 0,
+\]
+and $\min_{[0,P(a)]} u_a = -a$.
+\end{proposition}
+
+\begin{proof}
+Fix $a \in (0, 3/2)$, and set $C = C_a = -\frac{a}{2} + \frac{a^2}{6}$. Define
+\[
+G(v) = v(a-v)\!\left(1 - \frac{a+v}{3}\right), \qquad 0 \le v \le a.
+\]
+
+\paragraph{Phase-plane energy.}
+The usual phase-plane energy for $u'' + u + \frac{1}{2}u^2 = C$ is
+\[
+E(u,u') = \tfrac{1}{2}(u')^2 + \tfrac{1}{2}u^2 + \tfrac{1}{6}u^3 - Cu.
+\]
+Indeed, for any $C^2$ solution,
+\[
+\frac{d}{dx}\,E(u(x),u'(x)) = u'(x)\!\left(u''(x) + u(x) + \tfrac{1}{2}u(x)^2 - C\right) = 0.
+\]
+Thus any solution satisfying $u = 0$, $u' = 0$ at an endpoint must lie on the zero-energy curve
+\[
+(u')^2 = 2Cu - u^2 - \tfrac{1}{3}u^3.
+\]
+
+\paragraph{Factoring the right-hand side.}
+Using $C = -a/2 + a^2/6$,
+\[
+2Cu - u^2 - \tfrac{1}{3}u^3 = -\tfrac{1}{3}\,u(u+a)(u+3-a).
+\]
+For the negative branch, write $v = -u$. Then the zero-energy relation becomes
+\[
+(v')^2 = G(v) = v(a-v)\!\left(1 - \frac{a+v}{3}\right).
+\]
+
+\paragraph{Positivity of $G$.}
+Since $0 < a < 3/2$, for $0 \le v \le a$,
+\[
+1 - \frac{a+v}{3} \ge 1 - \frac{2a}{3} > 0.
+\]
+Hence
+\[
+G(v) > 0 \text{ for } 0 < v < a, \qquad G(0) = G(a) = 0.
+\]
+
+\paragraph{Integrability.}
+Let $m = 1 - \frac{2a}{3} > 0$. Then $G(v) \ge m\,v(a-v)$ for $0 \le v \le a$. Therefore
+\[
+\frac{1}{\sqrt{G(v)}} \le \frac{1}{\sqrt{m}\,\sqrt{v(a-v)}}.
+\]
+The comparison function is integrable on $(0,a)$, since
+\[
+\int_0^a \frac{dv}{\sqrt{v(a-v)}} = \pi.
+\]
+Thus
+\[
+T := \int_0^a \frac{dv}{\sqrt{G(v)}} < \infty,
+\]
+and by the definition of $P(a)$, $P(a) = 2T$.
+
+\paragraph{Construction of the ascending branch.}
+Define, for $0 \le r \le a$,
+\[
+I(r) = \int_0^r \frac{dv}{\sqrt{G(v)}}.
+\]
+This is understood as an improper integral at $v = 0$, and also at $v = a$ when $r = a$.
+
+The function $I$ is finite and continuous on $[0,a]$. Indeed, the integrand is dominated by the integrable function $(m\,v(a-v))^{-1/2}$. More explicitly, if $r_n \to r$, then
+\[
+|I(r_n) - I(r)| \le \int_{\min(r_n,r)}^{\max(r_n,r)} \frac{dv}{\sqrt{G(v)}},
+\]
+and the right-hand side tends to $0$ because the integrand is locally bounded in $(0,a)$ and has integrable endpoint singularities.
+
+Moreover, $I$ is strictly increasing: if $0 \le r < s \le a$, then
+\[
+I(s) - I(r) = \int_r^s \frac{dv}{\sqrt{G(v)}} > 0,
+\]
+because the integrand is positive on $(0,a)$. Hence $I$ maps $[0,a]$ continuously and strictly increasingly onto $[0,T]$. Therefore it has a continuous inverse
+\[
+w : [0,T] \to [0,a].
+\]
+Thus $w(0) = 0$, $w(T) = a$, and $0 < w(t) < a$ for $0 < t < T$.
+
+\paragraph{Differentiability and ODE.}
+For $r \in (0,a)$, the integrand $G(r)^{-1/2}$ is smooth, so $I$ is differentiable there and
+\[
+I'(r) = \frac{1}{\sqrt{G(r)}} > 0.
+\]
+
+Let $t \in (0,T)$. Since $w(t) \in (0,a)$, the inverse relation $I(w(t)) = t$ may be differentiated. Using the mean value theorem, for small $h$,
+\[
+h = I(w(t+h)) - I(w(t)) = I'(\xi_h)\bigl(w(t+h) - w(t)\bigr)
+\]
+for some $\xi_h$ between $w(t+h)$ and $w(t)$. As $h \to 0$, $\xi_h \to w(t)$, so
+\[
+w'(t) = \frac{1}{I'(w(t))} = \sqrt{G(w(t))}.
+\]
+Therefore $w'(t) > 0$ for $0 < t < T$.
+
+Since $G$ is a polynomial and $G > 0$ on $(0,a)$, the map $v \mapsto \sqrt{G(v)}$ is smooth on $(0,a)$. Hence $w \in C^\infty((0,T))$. Differentiating $w' = \sqrt{G(w)}$ gives
+\[
+w'' = \frac{G'(w)}{2\sqrt{G(w)}}\,w' = \frac{1}{2}\,G'(w).
+\]
+
+Now
+\[
+G(v) = \left(a - \frac{a^2}{3}\right)v - v^2 + \frac{1}{3}v^3,
+\]
+so $G'(v) = a - \frac{a^2}{3} - 2v + v^2$. Differentiating once more,
+\[
+w''' = \frac{1}{2}\,G''(w)\,w'.
+\]
+
+\paragraph{Endpoint regularity.}
+Since $w(t) \to 0$ as $t \downarrow 0$ and $w(t) \to a$ as $t \uparrow T$, and since $w'(t) = \sqrt{G(w(t))}$, we get
+\[
+\lim_{t \downarrow 0} w'(t) = 0, \qquad \lim_{t \uparrow T} w'(t) = 0.
+\]
+
+Also,
+\[
+\lim_{t \downarrow 0} w''(t) = \frac{1}{2}G'(0) = \frac{a}{2} - \frac{a^2}{6},
+\]
+and
+\[
+\lim_{t \uparrow T} w''(t) = \frac{1}{2}G'(a) = -\frac{a}{2} + \frac{a^2}{3}.
+\]
+
+Finally, because $G''$ is bounded on $[0,a]$ and $w'(t) \to 0$ at both endpoints,
+\[
+\lim_{t \downarrow 0} w'''(t) = 0, \qquad \lim_{t \uparrow T} w'''(t) = 0.
+\]
+
+The mean value theorem now identifies these one-sided limits with the actual endpoint derivatives. For example, since $w'$ has a finite right-limit at $0$,
+\[
+\frac{w(h) - w(0)}{h} = w'(\xi_h) \to 0
+\]
+for some $\xi_h \in (0,h)$. Hence $w'(0) = 0$. Applying the same argument successively to $w'$ and $w''$, and similarly at $T$ from the left, gives
+\[
+w \in C^3([0,T]),
+\]
+with $w'(0) = w'(T) = 0$, $w'''(0) = w'''(T) = 0$.
+
+\paragraph{The half-profile $u_1$.}
+Define $u_1(t) = -w(t)$ for $0 \le t \le T$. Then $u_1 \in C^3([0,T])$, and
+\[
+u_1(0) = 0, \quad u_1'(0) = 0, \quad u_1(T) = -a, \quad u_1'(T) = 0.
+\]
+
+For $0 < t < T$,
+\[
+u_1''(t) = -w''(t) = -\frac{1}{2}G'(w(t)).
+\]
+Using the formula for $G'$,
+\[
+-\frac{1}{2}G'(w) = -\frac{a}{2} + \frac{a^2}{6} + w - \frac{1}{2}w^2 = C + w - \frac{1}{2}w^2.
+\]
+Since $u_1 = -w$, this becomes $u_1'' = C - u_1 - \frac{1}{2}u_1^2$. Therefore
+\[
+u_1'' + u_1 + \tfrac{1}{2}u_1^2 = C
+\]
+on $(0,T)$. Since $u_1 \in C^2([0,T])$, the left-hand side is continuous, so the same identity holds on all of $[0,T]$.
+
+\paragraph{Reflection and the full profile $u_a$.}
+Reflect $u_1$ evenly about $t = T$. Define
+\[
+u_a(t) = \begin{cases} u_1(t), & 0 \le t \le T, \\ u_1(2T - t), & T \le t \le 2T. \end{cases}
+\]
+
+For $t > T$, putting $s = 2T - t$, we have
+\[
+u_a'(t) = -u_1'(s), \qquad u_a''(t) = u_1''(s), \qquad u_a'''(t) = -u_1'''(s).
+\]
+
+At $t = T$, the one-sided derivatives agree through order 3: the zeroth and second derivatives agree automatically, while $u_1'(T) = 0$ and $u_1'''(T) = 0$. Thus $u_a \in C^3([0,2T])$.
+
+On $[0,T]$, we already know $u_a'' + u_a + \frac{1}{2}u_a^2 = C$. On $(T,2T)$, using $s = 2T - t$,
+\[
+u_a''(t) + u_a(t) + \tfrac{1}{2}u_a(t)^2 = u_1''(s) + u_1(s) + \tfrac{1}{2}u_1(s)^2 = C.
+\]
+Since $u_a \in C^2([0,2T])$, the identity also holds at the gluing point $t = T$ and at $t = 2T$.
+
+Because $2T = P(a)$, we have constructed $u_a \in C^3([0,P(a)])$ satisfying $u_a'' + u_a + \frac{1}{2}u_a^2 = C_a$. The boundary conditions follow:
+\[
+u_a(0) = u_1(0) = 0, \qquad u_a'(0) = u_1'(0) = 0,
+\]
+and
+\[
+u_a(P(a)) = u_a(2T) = u_1(0) = 0, \qquad u_a'(P(a)) = -u_1'(0) = 0.
+\]
+
+Finally, $w$ is strictly increasing from $0$ to $a$ on $[0,T]$. Hence $u_1 = -w$ decreases from $0$ to $-a$, and the reflected half has the same range. Therefore
+\[
+\min_{[0,P(a)]} u_a = -a.
+\]
+Since $a > 0$, the function $u_a$ is nonzero.
+\end{proof}
+
+%% Section 3: Matching the Critical Length
+\section{Matching the Critical Length}
+
+\begin{proposition}\label{prop:matching}
+The function
+\[
+P(a) = 2\int_0^a \frac{dv}{\sqrt{v(a-v)\!\left(1 - \frac{a+v}{3}\right)}} \qquad (0 < a < 3/2)
+\]
+is continuous, satisfies
+\[
+\lim_{a \to 0^+} P(a) = 2\pi, \qquad \lim_{a \to (3/2)^-} P(a) = +\infty,
+\]
+and therefore there exists $a_* \in (0, 3/2)$ such that
+\[
+P(a_*) = 2\pi\sqrt{\frac{7}{3}}.
+\]
+\end{proposition}
+
+\begin{proof}
+
+\subsection*{Step 1: The basic endpoint integral}
+
+Let
+\[
+g(s) = \frac{1}{\sqrt{s(1-s)}}, \qquad 0 < s < 1.
+\]
+Define $\mathcal{G}(s) = 2\arcsin\sqrt{s}$. For $0 < s < 1$,
+\[
+\mathcal{G}'(s) = 2 \cdot \frac{1}{\sqrt{1-s}} \cdot \frac{1}{2\sqrt{s}} = \frac{1}{\sqrt{s(1-s)}} = g(s).
+\]
+Thus, for every $0 < r < t < 1$,
+\[
+\int_r^t g(s)\,ds = \mathcal{G}(t) - \mathcal{G}(r).
+\]
+Since $\lim_{s \to 0^+} \mathcal{G}(s) = 0$ and $\lim_{s \to 1^-} \mathcal{G}(s) = \pi$, the improper integral exists and
+\[
+\int_0^1 \frac{ds}{\sqrt{s(1-s)}} = \pi.
+\]
+Moreover, the endpoint tails vanish: for $0 < \eta < 1$,
+\[
+\int_0^\eta g(s)\,ds = 2\arcsin\sqrt{\eta} \to 0 \quad (\eta \to 0^+),
+\]
+and
+\[
+\int_{1-\eta}^1 g(s)\,ds = \pi - 2\arcsin\sqrt{1-\eta} \to 0 \quad (\eta \to 0^+).
+\]
+
+\subsection*{Step 2: Fixed-interval representation of $P(a)$}
+
+For $0 < a < 3/2$, define
+\[
+F_a(s) = \frac{1}{\sqrt{s(1-s)\!\left(1 - \frac{a(1+s)}{3}\right)}}, \qquad 0 < s < 1.
+\]
+For $0 < s < 1$, $1 - \frac{a(1+s)}{3} \ge 1 - \frac{2a}{3} > 0$, so $F_a$ is well-defined and positive. Also,
+\[
+F_a(s) \le \frac{1}{\sqrt{1 - \frac{2a}{3}}}\,g(s).
+\]
+Since $g$ has a finite improper integral on $(0,1)$, the comparison test shows that $\int_0^1 F_a(s)\,ds$ exists as an improper integral.
+
+Now justify the substitution $v = as$. On every compact subinterval of $(0,a)$, this is an ordinary $C^1$ change of variables. If $0 < \alpha < a/2$, then
+\[
+\int_\alpha^{a/2} f_a(v)\,dv = \int_{\alpha/a}^{1/2} F_a(s)\,ds,
+\]
+where $f_a(v) = \bigl(v(a-v)(1 - \frac{a+v}{3})\bigr)^{-1/2}$. Letting $\alpha \to 0^+$ is justified because
+\[
+0 \le \int_0^{\alpha/a} F_a(s)\,ds \le \frac{1}{\sqrt{1 - \frac{2a}{3}}} \int_0^{\alpha/a} g(s)\,ds \longrightarrow 0.
+\]
+
+Similarly, the upper endpoint gives $\int_{a/2}^a f_a(v)\,dv = \int_{1/2}^1 F_a(s)\,ds$. Combining:
+\[
+P(a) = 2\int_0^1 \frac{ds}{\sqrt{s(1-s)\!\left(1 - \frac{a(1+s)}{3}\right)}}.
+\]
+
+\subsection*{Step 3: Continuity of $P$}
+
+Write $F_a(s) = g(s)\,Q(a,s)$, where $Q(a,s) = \bigl(1 - \frac{a(1+s)}{3}\bigr)^{-1/2}$. Fix $a_0 \in (0,3/2)$. Choose $\beta$ such that $a_0 < \beta < \frac{3}{2}$ and set $c = 1 - \frac{2\beta}{3} > 0$. For $0 \le x \le \beta$ and $0 < s < 1$, $1 - \frac{x(1+s)}{3} \ge c$. Moreover,
+\[
+\frac{\partial Q}{\partial x}(x,s) = \frac{1+s}{6}\left(1 - \frac{x(1+s)}{3}\right)^{-3/2},
+\]
+so $\left|\frac{\partial Q}{\partial x}(x,s)\right| \le \frac{1}{3}\,c^{-3/2} =: \Lambda$. By the mean value theorem, for $0 < a < \beta$,
+\[
+|F_a(s) - F_{a_0}(s)| \le \Lambda\,|a - a_0|\,g(s).
+\]
+Integrating and using $\int_0^1 g(s)\,ds = \pi$:
+\[
+\left|\int_0^1 F_a(s)\,ds - \int_0^1 F_{a_0}(s)\,ds\right| \le \Lambda\pi\,|a - a_0|.
+\]
+Since $P(a) = 2\int_0^1 F_a(s)\,ds$, the function $P$ is continuous at $a_0$. Because $a_0 \in (0,3/2)$ was arbitrary, $P$ is continuous on $(0,3/2)$.
+
+\subsection*{Step 4: The limit as $a \to 0^+$}
+
+For $0 < a < 3/2$ and $0 < s < 1$,
+\[
+1 \le \left(1 - \frac{a(1+s)}{3}\right)^{-1/2} \le \frac{1}{\sqrt{1 - \frac{2a}{3}}}.
+\]
+Hence $g(s) \le F_a(s) \le \frac{1}{\sqrt{1 - 2a/3}}\,g(s)$. Integrating:
+\[
+\pi \le \int_0^1 F_a(s)\,ds \le \frac{\pi}{\sqrt{1 - \frac{2a}{3}}}.
+\]
+As $a \to 0^+$, the right-hand side tends to $\pi$. By the squeeze theorem,
+\[
+\lim_{a \to 0^+} P(a) = 2\pi.
+\]
+
+\subsection*{Step 5: The limit as $a \to (3/2)^-$}
+
+Let $\delta = \frac{3}{2} - a > 0$. For $0 < s < 1$,
+\[
+1 - \frac{a(1+s)}{3} = \frac{1-s}{2} + \frac{\delta(1+s)}{3}.
+\]
+Assume $0 < \delta < 1/4$. For $s \in [1/2, 1-2\delta]$ (which is nonempty), $1-s \ge 2\delta$ and $\frac{\delta(1+s)}{3} \le \frac{1-s}{3}$, so
+\[
+1 - \frac{a(1+s)}{3} \le \frac{5}{6}(1-s).
+\]
+Hence $s(1-s)\bigl(1 - \frac{a(1+s)}{3}\bigr) \le \frac{5}{6}(1-s)^2$, giving
+\[
+F_a(s) \ge \sqrt{\frac{6}{5}} \cdot \frac{1}{1-s}.
+\]
+Thus
+\[
+P(a) \ge 2\sqrt{\frac{6}{5}} \int_{1/2}^{1-2\delta} \frac{ds}{1-s} = 2\sqrt{\frac{6}{5}}\,\log\!\left(\frac{1}{4\delta}\right).
+\]
+As $\delta \to 0^+$, $\log\!\left(\frac{1}{4\delta}\right) \to +\infty$, so $\lim_{a \to (3/2)^-} P(a) = +\infty$.
+
+\subsection*{Step 6: Application of the intermediate value theorem}
+
+Let $\mathcal{T} = 2\pi\sqrt{\frac{7}{3}}$. Since $\sqrt{\frac{7}{3}} > 1$, we have $\mathcal{T} > 2\pi$.
+
+From $\lim_{a \to 0^+} P(a) = 2\pi$, there exists $a_1 \in (0, 3/2)$ such that $P(a_1) < \mathcal{T}$.
+
+From $\lim_{a \to (3/2)^-} P(a) = +\infty$, there exists $a_2 \in (a_1, 3/2)$ such that $P(a_2) > \mathcal{T}$.
+
+The function $P$ is continuous on $[a_1, a_2]$. Since $P(a_1) < \mathcal{T} < P(a_2)$, the intermediate value theorem gives some $a_* \in (a_1, a_2) \subset (0, 3/2)$ such that
+\[
+P(a_*) = 2\pi\sqrt{\frac{7}{3}}.
+\]
+\end{proof}
+
+%% Section 4: Conclusion
+\section{Conclusion: Existence of a Time-Periodic Solution}
+
+\begin{theorem}\label{thm:main}
+There exists a non-zero, time-periodic solution $(y, T)$ with $T > 0$ of the KdV equation
+\[
+y_t + y_{xxx} + y_x + y\,y_x = 0, \qquad y(t,0) = y(t,L) = y_x(t,L) = 0,
+\]
+with $L = 2\pi\sqrt{7/3}$.
+\end{theorem}
+
+\begin{proof}
+By Proposition~\ref{prop:matching}, there exists $a_* \in (0, 3/2)$ such that $P(a_*) = 2\pi\sqrt{7/3} = L$.
+
+By Proposition~\ref{prop:negative-loop}, there exists a nonzero function $u_{a_*} \in C^3([0, L])$ satisfying
+\[
+u_{a_*}'' + u_{a_*} + \tfrac{1}{2}\,u_{a_*}^2 = C_{a_*}, \qquad u_{a_*}(0) = u_{a_*}'(0) = u_{a_*}(L) = u_{a_*}'(L) = 0.
+\]
+
+By Lemma~\ref{lem:stationary}, for any $T > 0$ (say $T = 1$), the function $y(t,x) = u_{a_*}(x)$ is a nonzero $T$-periodic classical solution of the KdV equation with the prescribed boundary conditions.
+\end{proof}
+
+\begin{thebibliography}{9}
+\bibitem{rosier1997} L.~Rosier, \emph{Exact boundary controllability for the Korteweg--de Vries equation on a bounded domain}, ESAIM: Control Optim.\ Calc.\ Var.\ \textbf{2} (1997), 33--55.
+
+\bibitem{crepeau2004} E.~Cr\'epeau and J.-M.~Coron, \emph{Exact boundary controllability of a nonlinear KdV equation with critical lengths}, J.\ Eur.\ Math.\ Soc.\ \textbf{6} (2004), 367--398.
+
+\bibitem{niu2025} J.~Niu and S.~Xiang, \emph{Small-time local controllability for a KdV equation at all critical lengths}, arXiv:2501.13640 (2025).
+\end{thebibliography}
+
+\end{document}

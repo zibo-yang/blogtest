@@ -1,0 +1,66 @@
+Let
+\[
+H=\frac{1}{2}
+\begin{pmatrix}
+1&1&1&1\\
+1&1&-1&-1\\
+1&-1&1&-1\\
+1&-1&-1&1
+\end{pmatrix}\in\mathbb{R}^{4\times4}.
+\]
+We verify $H^TH=I$.
+\textit{Symmetry.} From the matrix display, $h_{ij}=h_{ji}$ for all $i,j$ (compare the $(i,j)$ and $(j,i)$ entries in each of the six off-diagonal pairs), so $H=H^T$.
+\textit{Row norms.} Each row has four entries of absolute value $1/2$, so $\sum_j h_{ij}^2 = 4\cdot\tfrac{1}{4}=1$ for each $i$.
+\textit{Row inner products.} Denoting the $\pm1$ pattern of row $i$ by $(\varepsilon_{i1},\varepsilon_{i2},\varepsilon_{i3},\varepsilon_{i4})$, the inner product of rows $i\ne i'$ is $\frac{1}{4}\sum_j \varepsilon_{ij}\varepsilon_{i'j}$. Checking all six distinct pairs:
+\begin{align*}
+\langle\text{row }1,\text{row }2\rangle &= \tfrac{1}{4}(1\cdot1+1\cdot1+1\cdot(-1)+1\cdot(-1))=\tfrac{1}{4}(1+1-1-1)=0,\\
+\langle\text{row }1,\text{row }3\rangle &= \tfrac{1}{4}(1\cdot1+1\cdot(-1)+1\cdot1+1\cdot(-1))=\tfrac{1}{4}(1-1+1-1)=0,\\
+\langle\text{row }1,\text{row }4\rangle &= \tfrac{1}{4}(1\cdot1+1\cdot(-1)+1\cdot(-1)+1\cdot1)=\tfrac{1}{4}(1-1-1+1)=0,\\
+\langle\text{row }2,\text{row }3\rangle &= \tfrac{1}{4}(1\cdot1+1\cdot(-1)+(-1)\cdot1+(-1)\cdot(-1))=\tfrac{1}{4}(1-1-1+1)=0,\\
+\langle\text{row }2,\text{row }4\rangle &= \tfrac{1}{4}(1\cdot1+1\cdot(-1)+(-1)\cdot(-1)+(-1)\cdot1)=\tfrac{1}{4}(1-1+1-1)=0,\\
+\langle\text{row }3,\text{row }4\rangle &= \tfrac{1}{4}(1\cdot1+(-1)\cdot(-1)+1\cdot(-1)+(-1)\cdot1)=\tfrac{1}{4}(1+1-1-1)=0.
+\end{align*}
+Hence the rows of $H$ are orthonormal, so $HH^T=I$. Since $H=H^T$, we have $H^TH=HH^T=I$.
+
+\begin{theorem}\label{thm:hadamard-norm}
+For every $r\in[2,\infty)$,
+\[
+\|H\|_{\ell^r_4\to\ell^r_4} = 4^{1/2-1/r}.
+\]
+\end{theorem}
+
+\begin{proof}
+Write $\|H\|_r:=\|H\|_{\ell^r_4\to\ell^r_4}$.
+
+\textbf{Upper bound.}
+We use two standard norm-comparison inequalities on $\mathbb{R}^4$.
+
+\emph{Inequality (i): $\|y\|_r\le\|y\|_2$ for $r\ge2$.}
+Since $r\ge2$, for any $y\in\mathbb{R}^4$,
+\[
+\|y\|_r^r=\sum_{i=1}^4|y_i|^r\le\Bigl(\max_i|y_i|\Bigr)^{r-2}\sum_{i=1}^4|y_i|^2\le\|y\|_2^{r-2}\cdot\|y\|_2^2=\|y\|_2^r,
+\]
+so $\|y\|_r\le\|y\|_2$.
+
+\emph{Inequality (ii): $\|y\|_2\le 4^{1/2-1/r}\|y\|_r$ for $r\ge2$.}
+Apply H\"older's inequality with exponents $r/2$ and $r/(r-2)$ (interpreting the case $r=2$ as equality):
+\[
+\|y\|_2^2=\sum_{i=1}^4|y_i|^2\le\Bigl(\sum_{i=1}^4|y_i|^r\Bigr)^{2/r}\Bigl(\sum_{i=1}^41\Bigr)^{1-2/r}=\|y\|_r^2\cdot4^{1-2/r},
+\]
+so $\|y\|_2\le4^{1/2-1/r}\|y\|_r$.
+
+\emph{Upper bound for $\|H\|_r$.}
+For any nonzero $x\in\mathbb{R}^4$, using $H^TH=I$:
+\[
+\frac{\|Hx\|_r}{\|x\|_r}\le\frac{\|Hx\|_2}{\|x\|_r}=\frac{\|x\|_2}{\|x\|_r}\le 4^{1/2-1/r}.
+\]
+Hence $\|H\|_r\le4^{1/2-1/r}$.
+
+\textbf{Lower bound.} Take $x=(1,1,1,1)^T$. Then $Hx=(2,0,0,0)^T$ (the first row of $H$ sums to $4\cdot\frac{1}{2}=2$; every other row sums to $0$). For any $r\in[2,\infty)$,
+\[
+\frac{\|Hx\|_r}{\|x\|_r}=\frac{(2^r)^{1/r}}{(1+1+1+1)^{1/r}}=\frac{2}{4^{1/r}}=4^{1/2-1/r}.
+\]
+Hence $\|H\|_r\ge4^{1/2-1/r}$.
+
+Combining both bounds, $\|H\|_r=4^{1/2-1/r}$ for all $r\in[2,\infty)$.
+\end{proof}

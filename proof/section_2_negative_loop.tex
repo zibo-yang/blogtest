@@ -1,0 +1,210 @@
+\section{Construction of Negative-Loop Stationary Profiles}
+
+\begin{proposition}\label{prop:negative-loop}
+For every $a \in (0, 3/2)$, define
+\[
+C_a = -\frac{a}{2} + \frac{a^2}{6}
+\]
+and
+\[
+P(a) = 2\int_0^a \frac{dv}{\sqrt{v(a-v)\!\left(1 - \frac{a+v}{3}\right)}}.
+\]
+There exists a nonzero function $u_a \in C^3([0, P(a)])$ such that
+\[
+u_a'' + u_a + \tfrac{1}{2}\,u_a^2 = C_a, \qquad u_a(0) = u_a'(0) = u_a(P(a)) = u_a'(P(a)) = 0,
+\]
+and $\min_{[0,P(a)]} u_a = -a$.
+\end{proposition}
+
+\begin{proof}
+Fix $a \in (0, 3/2)$, and set $C = C_a = -\frac{a}{2} + \frac{a^2}{6}$. Define
+\[
+G(v) = v(a-v)\!\left(1 - \frac{a+v}{3}\right), \qquad 0 \le v \le a.
+\]
+
+\paragraph{Phase-plane energy.}
+The usual phase-plane energy for $u'' + u + \frac{1}{2}u^2 = C$ is
+\[
+E(u,u') = \tfrac{1}{2}(u')^2 + \tfrac{1}{2}u^2 + \tfrac{1}{6}u^3 - Cu.
+\]
+Indeed, for any $C^2$ solution,
+\[
+\frac{d}{dx}\,E(u(x),u'(x)) = u'(x)\!\left(u''(x) + u(x) + \tfrac{1}{2}u(x)^2 - C\right) = 0.
+\]
+Thus any solution satisfying $u = 0$, $u' = 0$ at an endpoint must lie on the zero-energy curve
+\[
+(u')^2 = 2Cu - u^2 - \tfrac{1}{3}u^3.
+\]
+
+\paragraph{Factoring the right-hand side.}
+Using $C = -a/2 + a^2/6$,
+\[
+2Cu - u^2 - \tfrac{1}{3}u^3 = -\tfrac{1}{3}\,u(u+a)(u+3-a).
+\]
+For the negative branch, write $v = -u$. Then the zero-energy relation becomes
+\[
+(v')^2 = G(v) = v(a-v)\!\left(1 - \frac{a+v}{3}\right).
+\]
+
+\paragraph{Positivity of $G$.}
+Since $0 < a < 3/2$, for $0 \le v \le a$,
+\[
+1 - \frac{a+v}{3} \ge 1 - \frac{2a}{3} > 0.
+\]
+Hence
+\[
+G(v) > 0 \text{ for } 0 < v < a, \qquad G(0) = G(a) = 0.
+\]
+
+\paragraph{Integrability.}
+Let $m = 1 - \frac{2a}{3} > 0$. Then $G(v) \ge m\,v(a-v)$ for $0 \le v \le a$. Therefore
+\[
+\frac{1}{\sqrt{G(v)}} \le \frac{1}{\sqrt{m}\,\sqrt{v(a-v)}}.
+\]
+The comparison function is integrable on $(0,a)$, since
+\[
+\int_0^a \frac{dv}{\sqrt{v(a-v)}} = \pi.
+\]
+Thus
+\[
+T := \int_0^a \frac{dv}{\sqrt{G(v)}} < \infty,
+\]
+and by the definition of $P(a)$, $P(a) = 2T$.
+
+\paragraph{Construction of the ascending branch.}
+Define, for $0 \le r \le a$,
+\[
+I(r) = \int_0^r \frac{dv}{\sqrt{G(v)}}.
+\]
+This is understood as an improper integral at $v = 0$, and also at $v = a$ when $r = a$.
+
+The function $I$ is finite and continuous on $[0,a]$. Indeed, the integrand is dominated by the integrable function $(m\,v(a-v))^{-1/2}$. More explicitly, if $r_n \to r$, then
+\[
+|I(r_n) - I(r)| \le \int_{\min(r_n,r)}^{\max(r_n,r)} \frac{dv}{\sqrt{G(v)}},
+\]
+and the right-hand side tends to $0$ because the integrand is locally bounded in $(0,a)$ and has integrable endpoint singularities.
+
+Moreover, $I$ is strictly increasing: if $0 \le r < s \le a$, then
+\[
+I(s) - I(r) = \int_r^s \frac{dv}{\sqrt{G(v)}} > 0,
+\]
+because the integrand is positive on $(0,a)$. Hence $I$ maps $[0,a]$ continuously and strictly increasingly onto $[0,T]$. Therefore it has a continuous inverse
+\[
+w : [0,T] \to [0,a].
+\]
+Thus $w(0) = 0$, $w(T) = a$, and $0 < w(t) < a$ for $0 < t < T$.
+
+\paragraph{Differentiability and ODE.}
+For $r \in (0,a)$, the integrand $G(r)^{-1/2}$ is smooth, so $I$ is differentiable there and
+\[
+I'(r) = \frac{1}{\sqrt{G(r)}} > 0.
+\]
+
+Let $t \in (0,T)$. Since $w(t) \in (0,a)$, the inverse relation $I(w(t)) = t$ may be differentiated. Using the mean value theorem, for small $h$,
+\[
+h = I(w(t+h)) - I(w(t)) = I'(\xi_h)\bigl(w(t+h) - w(t)\bigr)
+\]
+for some $\xi_h$ between $w(t+h)$ and $w(t)$. As $h \to 0$, $\xi_h \to w(t)$, so
+\[
+w'(t) = \frac{1}{I'(w(t))} = \sqrt{G(w(t))}.
+\]
+Therefore $w'(t) > 0$ for $0 < t < T$.
+
+Since $G$ is a polynomial and $G > 0$ on $(0,a)$, the map $v \mapsto \sqrt{G(v)}$ is smooth on $(0,a)$. Hence $w \in C^\infty((0,T))$. Differentiating $w' = \sqrt{G(w)}$ gives
+\[
+w'' = \frac{G'(w)}{2\sqrt{G(w)}}\,w' = \frac{1}{2}\,G'(w).
+\]
+
+Now
+\[
+G(v) = \left(a - \frac{a^2}{3}\right)v - v^2 + \frac{1}{3}v^3,
+\]
+so $G'(v) = a - \frac{a^2}{3} - 2v + v^2$. Differentiating once more,
+\[
+w''' = \frac{1}{2}\,G''(w)\,w'.
+\]
+
+\paragraph{Endpoint regularity.}
+Since $w(t) \to 0$ as $t \downarrow 0$ and $w(t) \to a$ as $t \uparrow T$, and since $w'(t) = \sqrt{G(w(t))}$, we get
+\[
+\lim_{t \downarrow 0} w'(t) = 0, \qquad \lim_{t \uparrow T} w'(t) = 0.
+\]
+
+Also,
+\[
+\lim_{t \downarrow 0} w''(t) = \frac{1}{2}G'(0) = \frac{a}{2} - \frac{a^2}{6},
+\]
+and
+\[
+\lim_{t \uparrow T} w''(t) = \frac{1}{2}G'(a) = -\frac{a}{2} + \frac{a^2}{3}.
+\]
+
+Finally, because $G''$ is bounded on $[0,a]$ and $w'(t) \to 0$ at both endpoints,
+\[
+\lim_{t \downarrow 0} w'''(t) = 0, \qquad \lim_{t \uparrow T} w'''(t) = 0.
+\]
+
+The mean value theorem now identifies these one-sided limits with the actual endpoint derivatives. For example, since $w'$ has a finite right-limit at $0$,
+\[
+\frac{w(h) - w(0)}{h} = w'(\xi_h) \to 0
+\]
+for some $\xi_h \in (0,h)$. Hence $w'(0) = 0$. Applying the same argument successively to $w'$ and $w''$, and similarly at $T$ from the left, gives
+\[
+w \in C^3([0,T]),
+\]
+with $w'(0) = w'(T) = 0$, $w'''(0) = w'''(T) = 0$.
+
+\paragraph{The half-profile $u_1$.}
+Define $u_1(t) = -w(t)$ for $0 \le t \le T$. Then $u_1 \in C^3([0,T])$, and
+\[
+u_1(0) = 0, \quad u_1'(0) = 0, \quad u_1(T) = -a, \quad u_1'(T) = 0.
+\]
+
+For $0 < t < T$,
+\[
+u_1''(t) = -w''(t) = -\frac{1}{2}G'(w(t)).
+\]
+Using the formula for $G'$,
+\[
+-\frac{1}{2}G'(w) = -\frac{a}{2} + \frac{a^2}{6} + w - \frac{1}{2}w^2 = C + w - \frac{1}{2}w^2.
+\]
+Since $u_1 = -w$, this becomes $u_1'' = C - u_1 - \frac{1}{2}u_1^2$. Therefore
+\[
+u_1'' + u_1 + \tfrac{1}{2}u_1^2 = C
+\]
+on $(0,T)$. Since $u_1 \in C^2([0,T])$, the left-hand side is continuous, so the same identity holds on all of $[0,T]$.
+
+\paragraph{Reflection and the full profile $u_a$.}
+Reflect $u_1$ evenly about $t = T$. Define
+\[
+u_a(t) = \begin{cases} u_1(t), & 0 \le t \le T, \\ u_1(2T - t), & T \le t \le 2T. \end{cases}
+\]
+
+For $t > T$, putting $s = 2T - t$, we have
+\[
+u_a'(t) = -u_1'(s), \qquad u_a''(t) = u_1''(s), \qquad u_a'''(t) = -u_1'''(s).
+\]
+
+At $t = T$, the one-sided derivatives agree through order 3: the zeroth and second derivatives agree automatically, while $u_1'(T) = 0$ and $u_1'''(T) = 0$. Thus $u_a \in C^3([0,2T])$.
+
+On $[0,T]$, we already know $u_a'' + u_a + \frac{1}{2}u_a^2 = C$. On $(T,2T)$, using $s = 2T - t$,
+\[
+u_a''(t) + u_a(t) + \tfrac{1}{2}u_a(t)^2 = u_1''(s) + u_1(s) + \tfrac{1}{2}u_1(s)^2 = C.
+\]
+Since $u_a \in C^2([0,2T])$, the identity also holds at the gluing point $t = T$ and at $t = 2T$.
+
+Because $2T = P(a)$, we have constructed $u_a \in C^3([0,P(a)])$ satisfying $u_a'' + u_a + \frac{1}{2}u_a^2 = C_a$. The boundary conditions follow:
+\[
+u_a(0) = u_1(0) = 0, \qquad u_a'(0) = u_1'(0) = 0,
+\]
+and
+\[
+u_a(P(a)) = u_a(2T) = u_1(0) = 0, \qquad u_a'(P(a)) = -u_1'(0) = 0.
+\]
+
+Finally, $w$ is strictly increasing from $0$ to $a$ on $[0,T]$. Hence $u_1 = -w$ decreases from $0$ to $-a$, and the reflected half has the same range. Therefore
+\[
+\min_{[0,P(a)]} u_a = -a.
+\]
+Since $a > 0$, the function $u_a$ is nonzero.
+\end{proof}

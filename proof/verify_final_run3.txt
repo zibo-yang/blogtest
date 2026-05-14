@@ -1,0 +1,11 @@
+Anchor: Theorem thm:padding  
+Location: “Hence for $u\ne0$, ... Taking the supremum over nonzero $x$ gives $\le\|C\|_{\ell^r_k}$.”  
+Description: Justification Gap: The supremum is over all nonzero $x=(u,v)$, including the case $u=0$. The displayed quotient estimate is only derived for $u\ne0$, and the proof does not separately justify the $u=0$ case before taking the supremum.
+
+Anchor: Theorem thm:hadamard-norm  
+Location: “Note that $H^TH=I$ (the rows of $H$ are orthonormal), so $H$ is orthogonal.” and “Since $H^TH=I$...”  
+Description: Justification Gap: The proof relies on $H^TH=I$ to establish the $r=2$ norm, but it does not explicitly compute $H^TH$ or verify the claimed orthonormality. The assertion is used without justification.
+
+Anchor: Theorem thm:rho-hadamard  
+Location: “set $x_j=\operatorname{sgn}(a_{ij})|a_{ij}|^{q-1}\bigl(\sum_j|a_{ij}|^q\bigr)^{(1-q)}$. Then $\|x\|_r^r=\sum_j|a_{ij}|^{(q-1)r}\bigl(\sum_j|a_{ij}|^q\bigr)^{(1-q)r}=1$ ... and $\sum_j a_{ij}x_j=\bigl(\sum_j|a_{ij}|^q\bigr)^{1/q}$.”  
+Description: Critical Error: The normalization calculation is incorrect. If $S=\sum_j |a_{ij}|^q$, the displayed choice gives $\|x\|_r^r=S^{1-q}$, not $1$, and the resulting dot product is $S^{2-q}$, not generally $S^{1/q}$. Thus the proof of the row-norm lower bound is invalid, which breaks the lower-bound argument for $\rho_r^{(4)}(H)$.

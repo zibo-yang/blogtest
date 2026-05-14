@@ -1,0 +1,12 @@
+Verification Report for proof/section_2_negative_loop.tex
+==========================================================
+
+Problem: Proposition 2 -- Construction of negative-loop stationary profiles
+Mode: standard
+
+Verifier output: "The solution is correct."
+
+No critical errors found.
+No justification gaps found.
+
+Result: CLEAN

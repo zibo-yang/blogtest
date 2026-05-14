@@ -1,0 +1,136 @@
+\section{Matching the Critical Length}
+
+\begin{proposition}\label{prop:matching}
+The function
+\[
+P(a) = 2\int_0^a \frac{dv}{\sqrt{v(a-v)\!\left(1 - \frac{a+v}{3}\right)}} \qquad (0 < a < 3/2)
+\]
+is continuous, satisfies
+\[
+\lim_{a \to 0^+} P(a) = 2\pi, \qquad \lim_{a \to (3/2)^-} P(a) = +\infty,
+\]
+and therefore there exists $a_* \in (0, 3/2)$ such that
+\[
+P(a_*) = 2\pi\sqrt{\frac{7}{3}}.
+\]
+\end{proposition}
+
+\begin{proof}
+
+\subsection*{Step 1: The basic endpoint integral}
+
+Let
+\[
+g(s) = \frac{1}{\sqrt{s(1-s)}}, \qquad 0 < s < 1.
+\]
+Define $\mathcal{G}(s) = 2\arcsin\sqrt{s}$. For $0 < s < 1$,
+\[
+\mathcal{G}'(s) = 2 \cdot \frac{1}{\sqrt{1-s}} \cdot \frac{1}{2\sqrt{s}} = \frac{1}{\sqrt{s(1-s)}} = g(s).
+\]
+Thus, for every $0 < r < t < 1$,
+\[
+\int_r^t g(s)\,ds = \mathcal{G}(t) - \mathcal{G}(r).
+\]
+Since $\lim_{s \to 0^+} \mathcal{G}(s) = 0$ and $\lim_{s \to 1^-} \mathcal{G}(s) = \pi$, the improper integral exists and
+\[
+\int_0^1 \frac{ds}{\sqrt{s(1-s)}} = \pi.
+\]
+Moreover, the endpoint tails vanish: for $0 < \eta < 1$,
+\[
+\int_0^\eta g(s)\,ds = 2\arcsin\sqrt{\eta} \to 0 \quad (\eta \to 0^+),
+\]
+and
+\[
+\int_{1-\eta}^1 g(s)\,ds = \pi - 2\arcsin\sqrt{1-\eta} \to 0 \quad (\eta \to 0^+).
+\]
+
+\subsection*{Step 2: Fixed-interval representation of $P(a)$}
+
+For $0 < a < 3/2$, define
+\[
+F_a(s) = \frac{1}{\sqrt{s(1-s)\!\left(1 - \frac{a(1+s)}{3}\right)}}, \qquad 0 < s < 1.
+\]
+For $0 < s < 1$, $1 - \frac{a(1+s)}{3} \ge 1 - \frac{2a}{3} > 0$, so $F_a$ is well-defined and positive. Also,
+\[
+F_a(s) \le \frac{1}{\sqrt{1 - \frac{2a}{3}}}\,g(s).
+\]
+Since $g$ has a finite improper integral on $(0,1)$, the comparison test shows that $\int_0^1 F_a(s)\,ds$ exists as an improper integral.
+
+Now justify the substitution $v = as$. On every compact subinterval of $(0,a)$, this is an ordinary $C^1$ change of variables. If $0 < \alpha < a/2$, then
+\[
+\int_\alpha^{a/2} f_a(v)\,dv = \int_{\alpha/a}^{1/2} F_a(s)\,ds,
+\]
+where $f_a(v) = \bigl(v(a-v)(1 - \frac{a+v}{3})\bigr)^{-1/2}$. Letting $\alpha \to 0^+$ is justified because
+\[
+0 \le \int_0^{\alpha/a} F_a(s)\,ds \le \frac{1}{\sqrt{1 - \frac{2a}{3}}} \int_0^{\alpha/a} g(s)\,ds \longrightarrow 0.
+\]
+
+Similarly, the upper endpoint gives $\int_{a/2}^a f_a(v)\,dv = \int_{1/2}^1 F_a(s)\,ds$. Combining:
+\[
+P(a) = 2\int_0^1 \frac{ds}{\sqrt{s(1-s)\!\left(1 - \frac{a(1+s)}{3}\right)}}.
+\]
+
+\subsection*{Step 3: Continuity of $P$}
+
+Write $F_a(s) = g(s)\,Q(a,s)$, where $Q(a,s) = \bigl(1 - \frac{a(1+s)}{3}\bigr)^{-1/2}$. Fix $a_0 \in (0,3/2)$. Choose $\beta$ such that $a_0 < \beta < \frac{3}{2}$ and set $c = 1 - \frac{2\beta}{3} > 0$. For $0 \le x \le \beta$ and $0 < s < 1$, $1 - \frac{x(1+s)}{3} \ge c$. Moreover,
+\[
+\frac{\partial Q}{\partial x}(x,s) = \frac{1+s}{6}\left(1 - \frac{x(1+s)}{3}\right)^{-3/2},
+\]
+so $\left|\frac{\partial Q}{\partial x}(x,s)\right| \le \frac{1}{3}\,c^{-3/2} =: \Lambda$. By the mean value theorem, for $0 < a < \beta$,
+\[
+|F_a(s) - F_{a_0}(s)| \le \Lambda\,|a - a_0|\,g(s).
+\]
+Integrating and using $\int_0^1 g(s)\,ds = \pi$:
+\[
+\left|\int_0^1 F_a(s)\,ds - \int_0^1 F_{a_0}(s)\,ds\right| \le \Lambda\pi\,|a - a_0|.
+\]
+Since $P(a) = 2\int_0^1 F_a(s)\,ds$, the function $P$ is continuous at $a_0$. Because $a_0 \in (0,3/2)$ was arbitrary, $P$ is continuous on $(0,3/2)$.
+
+\subsection*{Step 4: The limit as $a \to 0^+$}
+
+For $0 < a < 3/2$ and $0 < s < 1$,
+\[
+1 \le \left(1 - \frac{a(1+s)}{3}\right)^{-1/2} \le \frac{1}{\sqrt{1 - \frac{2a}{3}}}.
+\]
+Hence $g(s) \le F_a(s) \le \frac{1}{\sqrt{1 - 2a/3}}\,g(s)$. Integrating:
+\[
+\pi \le \int_0^1 F_a(s)\,ds \le \frac{\pi}{\sqrt{1 - \frac{2a}{3}}}.
+\]
+As $a \to 0^+$, the right-hand side tends to $\pi$. By the squeeze theorem,
+\[
+\lim_{a \to 0^+} P(a) = 2\pi.
+\]
+
+\subsection*{Step 5: The limit as $a \to (3/2)^-$}
+
+Let $\delta = \frac{3}{2} - a > 0$. For $0 < s < 1$,
+\[
+1 - \frac{a(1+s)}{3} = \frac{1-s}{2} + \frac{\delta(1+s)}{3}.
+\]
+Assume $0 < \delta < 1/4$. For $s \in [1/2, 1-2\delta]$ (which is nonempty), $1-s \ge 2\delta$ and $\frac{\delta(1+s)}{3} \le \frac{1-s}{3}$, so
+\[
+1 - \frac{a(1+s)}{3} \le \frac{5}{6}(1-s).
+\]
+Hence $s(1-s)\bigl(1 - \frac{a(1+s)}{3}\bigr) \le \frac{5}{6}(1-s)^2$, giving
+\[
+F_a(s) \ge \sqrt{\frac{6}{5}} \cdot \frac{1}{1-s}.
+\]
+Thus
+\[
+P(a) \ge 2\sqrt{\frac{6}{5}} \int_{1/2}^{1-2\delta} \frac{ds}{1-s} = 2\sqrt{\frac{6}{5}}\,\log\!\left(\frac{1}{4\delta}\right).
+\]
+As $\delta \to 0^+$, $\log\!\left(\frac{1}{4\delta}\right) \to +\infty$, so $\lim_{a \to (3/2)^-} P(a) = +\infty$.
+
+\subsection*{Step 6: Application of the intermediate value theorem}
+
+Let $\mathcal{T} = 2\pi\sqrt{\frac{7}{3}}$. Since $\sqrt{\frac{7}{3}} > 1$, we have $\mathcal{T} > 2\pi$.
+
+From $\lim_{a \to 0^+} P(a) = 2\pi$, there exists $a_1 \in (0, 3/2)$ such that $P(a_1) < \mathcal{T}$.
+
+From $\lim_{a \to (3/2)^-} P(a) = +\infty$, there exists $a_2 \in (a_1, 3/2)$ such that $P(a_2) > \mathcal{T}$.
+
+The function $P$ is continuous on $[a_1, a_2]$. Since $P(a_1) < \mathcal{T} < P(a_2)$, the intermediate value theorem gives some $a_* \in (a_1, a_2) \subset (0, 3/2)$ such that
+\[
+P(a_*) = 2\pi\sqrt{\frac{7}{3}}.
+\]
+\end{proof}

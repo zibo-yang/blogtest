@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,xcolor}
+\input{_macros}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\rhor}[2]{\rho_{#1}^{(#2)}}
+
+\title{Proof of Conjecture 3:\\
+Strict Monotonicity of $\rho_p$ for the Hadamard Matrix}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Statement}
+
+\begin{theorem}[Conjecture 3]\label{thm:conj3}
+For every integer $n>6$ and every integer $p>2$, there exists $M\in\mathbb{R}^{n\times n}$ such that
+\[
+\rho_p(M) < \rho_{p+1}(M),
+\]
+where $\rho_r(M):=\inf\bigl\{\|\Delta M\Delta^{-1}\|_{\ell^r_n\to\ell^r_n} \mid \Delta=\mathrm{diag}(\delta_1,\dots,\delta_n),\,\delta_i>0\bigr\}$.
+\end{theorem}
+
+The proof proceeds in four steps. We first establish a zero-padding lemma (Section~\ref{sec:padding}), then compute the exact $\ell^r$-operator norm of the normalized $4\times4$ Hadamard matrix (Section~\ref{sec:hadamard}), show that no diagonal scaling can improve this value (Section~\ref{sec:scaling}), and finally combine everything to prove Conjecture~3 (Section~\ref{sec:conclusion}).
+
+%% ============================================================
+\section{Zero-Padding Preserves $\rho_r$}
+\label{sec:padding}
+%% ============================================================
+
+\input{section_1_final}
+
+%% ============================================================
+\section{Norm of the Normalized Hadamard Matrix}
+\label{sec:hadamard}
+%% ============================================================
+
+\input{section_2_final}
+
+%% ============================================================
+\section{Diagonal Scalings Cannot Improve $H$}
+\label{sec:scaling}
+%% ============================================================
+
+\input{section_3_final}
+
+%% ============================================================
+\section{Proof of Conjecture 3}
+\label{sec:conclusion}
+%% ============================================================
+
+\input{section_4_final}
+
+\begin{thebibliography}{9}
+\bibitem{coron2008}
+J.-M.\ Coron, G.\ Bastin, and B.\ d'Andr\'ea-Novel.
+Dissipative boundary conditions for one-dimensional nonlinear hyperbolic systems.
+\textit{SIAM J.\ Control Optim.}, 47(3):1460--1498, 2008.
+
+\bibitem{coron2015}
+J.-M.\ Coron and H.-M.\ Nguyen.
+Dissipative boundary conditions for nonlinear 1-D hyperbolic systems: sharp conditions through an approach via time-delay systems.
+\textit{SIAM J.\ Math.\ Anal.}, 47(3):2220--2240, 2015.
+
+\bibitem{rump2003}
+S.\ M.\ Rump.
+Optimal scaling for $p$-norms and componentwise distance to singularity.
+\textit{IMA J.\ Numer.\ Anal.}, 23(1):1--9, 2003.
+\end{thebibliography}
+
+\end{document}
