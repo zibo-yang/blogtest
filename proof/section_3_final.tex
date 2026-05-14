@@ -16,7 +16,24 @@ For any matrix $A=(a_{ij})\in\mathbb{R}^{n\times n}$ and any row index $i$,
 \[
 \|A\|_{\ell^r\to\ell^r}\ge\Bigl(\sum_{j=1}^n|a_{ij}|^q\Bigr)^{1/q}.
 \]
-\emph{Proof.} For any $x\in\mathbb{R}^n$, $\|Ax\|_r\ge|(Ax)_i|=|\sum_j a_{ij}x_j|$. By H\"{o}lder's inequality, $|\sum_j a_{ij}x_j|\le\bigl(\sum_j|a_{ij}|^q\bigr)^{1/q}\|x\|_r$. So $\|A\|_r\ge\sup_{\|x\|_r=1}|\sum_j a_{ij}x_j|$. To show the supremum equals $\bigl(\sum_j|a_{ij}|^q\bigr)^{1/q}$: if $a^{(i)}\ne0$, set $x_j=\operatorname{sgn}(a_{ij})|a_{ij}|^{q-1}\bigl(\sum_j|a_{ij}|^q\bigr)^{(1-q)}$. Then $\|x\|_r^r=\sum_j|a_{ij}|^{(q-1)r}\bigl(\sum_j|a_{ij}|^q\bigr)^{(1-q)r}=1$ (using $(q-1)r=q$ and $(1-q)r=-q$), and $\sum_j a_{ij}x_j=\bigl(\sum_j|a_{ij}|^q\bigr)^{1/q}$. This proves the lemma.
+\emph{Proof.} For any $x\in\mathbb{R}^n$, $\|Ax\|_r\ge|(Ax)_i|=|\sum_j a_{ij}x_j|$. By H\"{o}lder's inequality,
+$|\sum_j a_{ij}x_j|\le\bigl(\sum_j|a_{ij}|^q\bigr)^{1/q}\|x\|_r$,
+so $\|A\|_r\ge\sup_{\|x\|_r=1}|\sum_j a_{ij}x_j|$.
+To prove equality (when $a^{(i)}\ne0$), set $S:=\sum_j|a_{ij}|^q>0$ and
+\[
+x_j:=\frac{\operatorname{sgn}(a_{ij})|a_{ij}|^{q-1}}{\|a^{(i)}\|_q^{q-1}},
+\quad\text{where }\|a^{(i)}\|_q=S^{1/q}.
+\]
+Then, using $(q-1)r=q$ (which holds since $1/r+1/q=1$):
+\[
+\|x\|_r^r=\sum_j\frac{|a_{ij}|^{(q-1)r}}{\|a^{(i)}\|_q^{(q-1)r}}
+=\frac{\sum_j|a_{ij}|^q}{\|a^{(i)}\|_q^q}=\frac{S}{S}=1,
+\]
+and
+\[
+\sum_j a_{ij}x_j=\frac{\sum_j|a_{ij}|^q}{\|a^{(i)}\|_q^{q-1}}=\frac{S}{S^{(q-1)/q}}=S^{1/q}=\|a^{(i)}\|_q.
+\]
+Hence the supremum equals $\|a^{(i)}\|_q$, proving the lemma.
 
 \textbf{Lower bound for all $\Delta$.}
 Let $\Delta=\operatorname{diag}(\delta_1,\delta_2,\delta_3,\delta_4)$ with $\delta_i>0$, and set $C=\Delta H\Delta^{-1}$. Since $|h_{ij}|=1/2$ for all $i,j$, we have $|c_{ij}|=\delta_i/(2\delta_j)$.

@@ -25,14 +25,14 @@ Also,
 \ge \bigl(\|u\|_r^r\bigr)^{1/r}=\|u\|_r,
 \]
 where the inequality uses $\|v\|_r^r\ge0$ and the fact that $t\mapsto t^{1/r}$ is non-decreasing.
-Hence for $u\ne0$,
+If $u=0$, then $\left\|\begin{pmatrix}C&0\\0&0\end{pmatrix}x\right\|_r=0\le\|C\|_{\ell^r_k}\|x\|_r$, so the bound holds. If $u\ne0$,
 \[
 \frac{\left\|\begin{pmatrix}C&0\\0&0\end{pmatrix}x\right\|_r}{\|x\|_r}
 =\frac{\|Cu\|_r}{\bigl(\|u\|_r^r+\|v\|_r^r\bigr)^{1/r}}
 \le \frac{\|Cu\|_r}{\|u\|_r}
 \le \|C\|_{\ell^r_k}.
 \]
-Taking the supremum over nonzero $x$ gives $\le\|C\|_{\ell^r_k}$.
+In both cases the ratio is $\le\|C\|_{\ell^r_k}$; taking the supremum over nonzero $x$ gives $\le\|C\|_{\ell^r_k}$.
 The reverse inequality is obtained by testing on $x=(u,0)$:
 \[
 \frac{\left\|\begin{pmatrix}C&0\\0&0\end{pmatrix}x\right\|_r}{\|x\|_r}
