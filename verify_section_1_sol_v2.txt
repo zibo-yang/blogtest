@@ -1,0 +1,7 @@
+Anchor: Theorem 1  
+Location: “Such a greatest positive common divisor exists because the set of positive common divisors of \(a\) and \(b\) is nonempty and bounded above by \(|b|\).”  
+Description: Justification Gap: The proof does not explicitly justify why this set is nonempty, why it is bounded above by \(|b|\), or why a nonempty bounded-above subset of the positive integers must have a greatest element. Thus the existence of \(d=\gcd(a,b)\) is not fully established under the stated grading rules.
+
+Anchor: Theorem 1  
+Location: “If necessary, replace both \(p\) and \(q\) by their negatives so that \(q>0\). … Now suppose \(c\) is any positive common divisor of \(p\) and \(q\). Then \(cd\) divides both \(a\) and \(b\).”  
+Description: Justification Gap: After possibly replacing \(p\) and \(q\) by their negatives, the previously stated equations \(a=dp\) and \(b=dq\) need not literally hold for the new \(p,q\). The proof does not explicitly justify that \(cd\) still divides \(a\) and \(b\) after this sign change.

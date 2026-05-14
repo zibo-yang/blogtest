@@ -1,0 +1,11 @@
+Anchor: Theorem 1  
+Location: “Moreover, we may choose such integers $p$ and $q$ so that the fraction $\frac{p}{q}$ is in lowest terms, meaning that \[\gcd(p,q)=1.\]”  
+Description: Justification Gap. The solution uses the fact that every rational number has an integer representation in lowest terms, but it does not state or justify the theorem/property guaranteeing such a choice of $p,q$.
+
+Anchor: Theorem 1  
+Location: “Thus an odd integer has odd square. Consequently, if $n^2$ is even, then $n$ must be even.”  
+Description: Justification Gap. The conclusion relies on the parity dichotomy/exclusivity for integers: every integer is either even or odd, and no integer is both. This property is not stated or justified before using the contrapositive-style argument.
+
+Anchor: Theorem 1  
+Location: “Thus both $p$ and $q$ are even, so $2$ divides both $p$ and $q$. Therefore \[\gcd(p,q) \geq 2,\]”  
+Description: Justification Gap. The solution relies on the property that if a positive integer divides both $p$ and $q$, then it is at most $\gcd(p,q)$, or equivalently that the gcd is the greatest positive common divisor. This property of $\gcd$ is not explicitly stated or justified.

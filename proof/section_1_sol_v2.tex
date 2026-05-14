@@ -1,0 +1,99 @@
+```latex
+\begin{theorem}
+The number $\sqrt{2}$ is irrational.
+\end{theorem}
+
+\begin{proof}
+We first record the elementary facts about integers that will be used.
+
+An integer is called even if it has the form $2k$ for some $k \in \mathbb Z$, and odd if it has the form $2k+1$ for some $k \in \mathbb Z$. By the division algorithm with divisor $2$, every integer is either even or odd. These two possibilities are mutually exclusive: if
+\[
+2a = 2b+1
+\]
+for integers $a,b$, then
+\[
+2(a-b)=1,
+\]
+which is impossible because no integer multiple of $2$ equals $1$.
+
+We also use the following property of rational numbers: every rational number can be written in lowest terms. Indeed, if $x \in \mathbb Q$, then $x=a/b$ for some integers $a,b$ with $b \neq 0$. Let
+\[
+d=\gcd(a,b),
+\]
+where $\gcd(a,b)$ means the greatest positive integer dividing both $a$ and $b$. Such a greatest positive common divisor exists because the set of positive common divisors of $a$ and $b$ is nonempty and bounded above by $|b|$. Since $d$ divides both $a$ and $b$, we may write
+\[
+a=dp,\qquad b=dq
+\]
+for some integers $p,q$. Then
+\[
+x=\frac{a}{b}=\frac{dp}{dq}=\frac{p}{q}.
+\]
+If necessary, replace both $p$ and $q$ by their negatives so that $q>0$.
+
+Now suppose $c$ is any positive common divisor of $p$ and $q$. Then $cd$ divides both $a$ and $b$. Since $d=\gcd(a,b)$ is the greatest positive common divisor of $a$ and $b$, we have
+\[
+cd \leq d.
+\]
+Because $c,d>0$, this implies $c\leq 1$, hence $c=1$. Therefore
+\[
+\gcd(p,q)=1.
+\]
+Thus every rational number has a representation in lowest terms.
+
+Now suppose, for contradiction, that $\sqrt{2}$ is rational. Then by the lowest-terms property, there exist integers $p,q$ with $q>0$ such that
+\[
+\sqrt{2}=\frac{p}{q}
+\]
+and
+\[
+\gcd(p,q)=1.
+\]
+Squaring both sides gives
+\[
+2=\frac{p^2}{q^2}.
+\]
+Multiplying by $q^2$ yields
+\[
+2q^2=p^2.
+\]
+Hence $p^2$ is even.
+
+We claim that if $n^2$ is even, then $n$ is even. To justify this, suppose $n$ is odd. Then $n=2k+1$ for some $k\in\mathbb Z$, so
+\[
+n^2=(2k+1)^2=4k^2+4k+1
+=2(2k^2+2k)+1.
+\]
+Thus $n^2$ is odd. Since every integer is either even or odd, and not both, it follows that if $n^2$ is even, then $n$ cannot be odd; therefore $n$ must be even.
+
+Applying this to $p$, since $p^2$ is even, $p$ is even. Hence there exists $r\in\mathbb Z$ such that
+\[
+p=2r.
+\]
+Substituting into $2q^2=p^2$ gives
+\[
+2q^2=(2r)^2=4r^2.
+\]
+Dividing by $2$, we obtain
+\[
+q^2=2r^2.
+\]
+Thus $q^2$ is even, so by the same argument, $q$ is even.
+
+Therefore both $p$ and $q$ are even. Equivalently,
+\[
+2 \mid p
+\qquad\text{and}\qquad
+2 \mid q.
+\]
+So $2$ is a positive common divisor of $p$ and $q$. Since $\gcd(p,q)$ is by definition the greatest positive common divisor of $p$ and $q$, we must have
+\[
+2 \leq \gcd(p,q).
+\]
+But this contradicts the fact that
+\[
+\gcd(p,q)=1.
+\]
+
+Therefore our assumption that $\sqrt{2}$ is rational was false. Hence $\sqrt{2}$ is irrational.
+\end{proof}
+```

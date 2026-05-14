@@ -1,0 +1,72 @@
+```latex
+\begin{theorem}
+The number $\sqrt{2}$ is irrational.
+\end{theorem}
+
+\begin{proof}
+We first record the elementary facts that will be used throughout.
+
+\medskip
+\noindent\textbf{Even and odd integers.}
+An integer is called \emph{even} if it has the form $2k$ for some $k\in\mathbb{Z}$, and \emph{odd} if it has the form $2k+1$ for some $k\in\mathbb{Z}$. By the division algorithm with divisor $2$, every integer is either even or odd. These two classes are mutually exclusive: if $2a=2b+1$ for integers $a,b$, then $2(a-b)=1$, which is impossible since $2$ does not divide $1$.
+
+\medskip
+\noindent\textbf{Lowest-terms representation of a rational number.}
+We prove that every rational number can be written as $p/q$ with $q>0$ and $\gcd(p,q)=1$.
+
+Let $x\in\mathbb{Q}$, so $x=a/b$ for some $a,b\in\mathbb{Z}$ with $b\neq 0$. Replacing $(a,b)$ by $(-a,-b)$ if necessary, we may assume $b>0$ without changing the value of $x$.
+
+Consider the non-empty set
+\[
+S \;=\; \{\, n\in\mathbb{Z} : n\geq 1 \text{ and } n\mid a \text{ and } n\mid b\,\}.
+\]
+\emph{Non-emptiness:} $1\in S$ because $1$ divides every integer.
+
+\emph{Bounded above:} Every element $n\in S$ satisfies $n\mid b$ and $b>0$, so $n\leq b$ (since a positive divisor of a positive integer cannot exceed that integer).
+
+Since $S$ is a non-empty set of positive integers that is bounded above by $b$, it has a greatest element $d:=\max S$; this follows from the fact that every non-empty finite set of integers has a maximum, and $S$ is finite because it is a non-empty set of positive integers bounded above by $b$.
+
+By definition, $d\mid a$ and $d\mid b$, so we write
+\[
+a = d\,p,\qquad b = d\,q
+\]
+for uniquely determined integers $p$ and $q$ (with $q = b/d > 0$ since $b > 0$ and $d > 0$). Then
+\[
+x \;=\; \frac{a}{b} \;=\; \frac{dp}{dq} \;=\; \frac{p}{q}, \qquad q > 0.
+\]
+
+It remains to show $\gcd(p,q)=1$, i.e., that the only positive integer dividing both $p$ and $q$ is $1$. Let $c\geq 1$ be a common divisor of $p$ and $q$, so $p=c\,p'$ and $q=c\,q'$ for some integers $p',q'$. Then
+\[
+a = dp = d(cp') = (cd)\,p', \qquad b = dq = d(cq') = (cd)\,q',
+\]
+so $cd$ divides both $a$ and $b$, giving $cd\in S$. Since $d = \max S$, we have $cd\leq d$. Because $c\geq 1$ and $d\geq 1$, this forces $c\leq 1$, hence $c=1$. Therefore $\gcd(p,q)=1$.
+
+\medskip
+\noindent\textbf{Main argument.}
+Suppose, for contradiction, that $\sqrt{2}$ is rational. By the lowest-terms property established above, there exist integers $p$ and $q$ with $q>0$ and $\gcd(p,q)=1$ such that
+\[
+\sqrt{2} \;=\; \frac{p}{q}.
+\]
+Squaring and multiplying by $q^2$ gives
+\[
+p^2 \;=\; 2q^2. \tag{1}
+\]
+Hence $p^2$ is even.
+
+\emph{Claim:} If $n^2$ is even then $n$ is even. \emph{Proof of claim:} Suppose $n$ is odd, say $n=2k+1$. Then
+\[
+n^2 = (2k+1)^2 = 4k^2+4k+1 = 2(2k^2+2k)+1,
+\]
+which is odd. Since even and odd are mutually exclusive, if $n^2$ is even then $n$ cannot be odd, so $n$ must be even. $\square$
+
+Applying the claim to $p$: since $p^2$ is even, $p$ is even, so $p=2r$ for some $r\in\mathbb{Z}$. Substituting into $(1)$:
+\[
+(2r)^2 = 2q^2 \;\Longrightarrow\; 4r^2 = 2q^2 \;\Longrightarrow\; q^2 = 2r^2.
+\]
+Hence $q^2$ is even, so by the same claim, $q$ is even.
+
+Thus $2\mid p$ and $2\mid q$, which means $2$ is a common divisor of $p$ and $q$, contradicting $\gcd(p,q)=1$.
+
+This contradiction shows that $\sqrt{2}$ cannot be rational; therefore $\sqrt{2}$ is irrational.
+\end{proof}
+```
