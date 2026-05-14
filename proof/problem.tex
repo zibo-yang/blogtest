@@ -2,54 +2,98 @@
 \usepackage{amsmath,amssymb,amsthm,xcolor}
 \input{_macros}
 
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
-\newtheorem{proposition}[lemma]{Proposition}
-\newtheorem{theorem}[lemma]{Theorem}
+\newtheorem{remark}{Remark}
 
-\title{Time-Periodic Solutions of a KdV Equation at a Critical Length}
-\author{}
+\title{Stabilizing Quantities $\rho_p$ for Boundary Control of PDE:\\
+Proof of Conjecture 3}
+\author{Based on a question by Jean-Michel Coron (2016)\\
+Original problem statement by Amaury Hayat (February 09, 2026)}
 \date{}
 
 \begin{document}
 \maketitle
 
-\section*{Problem Statement}
+\section*{Setting and Definitions}
 
-Consider the Korteweg--de Vries (KdV) equation on the interval $x \in (0, L)$:
-\begin{equation}\label{eq:kdv}
-y_t + y_{xxx} + y_x + y\, y_x = 0,
-\end{equation}
-with boundary conditions
-\begin{equation}\label{eq:bc}
-y(t, 0) = y(t, L) = y_x(t, L) = 0,
-\end{equation}
-where $L$ belongs to the critical length set
+We consider nonlinear PDE of the form
 \[
-\mathcal{N} := \left\{ 2\pi \sqrt{\frac{k^2 + kl + l^2}{3}} : k, l \in \mathbb{Z}_{>0} \right\}
+\partial_t u + A(u)\partial_x u + B(u) = 0, \quad \text{on } [0,L],
 \]
-introduced by Rosier (1997).
-
-\medskip\noindent
-\textbf{Task.} Take $k = 2$, $l = 1$, so that
+where $u \in \mathbb{R}^n$, with boundary conditions
 \[
-L = 2\pi \sqrt{\frac{4 + 2 + 1}{3}} = 2\pi\sqrt{\frac{7}{3}}.
+\begin{pmatrix} u_+(t,0) \\ u_-(t,L) \end{pmatrix}
+= G\begin{pmatrix} u_+(t,L) \\ u_-(t,0) \end{pmatrix}.
 \]
-Prove the existence of a non-zero, time-periodic solution $(y, T)$ with $T > 0$ to equations~\eqref{eq:kdv}--\eqref{eq:bc} with this value of $L$.
 
-\medskip\noindent
-\textbf{Overview of the proof.} Rather than employing the Lyapunov--Schmidt bifurcation approach suggested by the hint, we observe that any nonzero stationary solution $y(t,x) = u(x)$ is automatically $T$-periodic for every $T > 0$. We reduce the PDE to a second-order ODE boundary value problem via a first integral, construct a one-parameter family of negative-loop orbits using phase-plane analysis, and show by the intermediate value theorem that one member of this family has spatial period exactly $L = 2\pi\sqrt{7/3}$.
+A natural quantity arising in the stability analysis is the following function. For $M \in \mathbb{R}^{n \times n}$ and $p \in [1,+\infty]$, define
+\[
+\rho_p(M) := \inf\bigl\{ \|\Delta M \Delta^{-1}\|_p \;\big|\;
+\Delta = \mathrm{diag}(\delta_1,\ldots,\delta_n),\; \delta_i > 0 \;\forall i \bigr\},
+\]
+where $\|\cdot\|_p$ denotes the matrix $p$-norm (operator norm induced by the vector $\ell^p$ norm).
 
-\input{section_1_stationary_criterion}
-\input{section_2_negative_loop}
-\input{section_3_matching_length}
-\input{section_4_conclusion}
+\section*{Background}
+
+It is known that for any $n \in \mathbb{N}$ and $M \in \mathbb{R}^{n\times n}$:
+\[
+\rho_1(M) \ge \rho_2(M), \qquad \rho_1(M) = \rho_\infty(M),
+\]
+and for $n \ge 2$ there exists $M \in \mathbb{R}^{n\times n}$ such that $\rho_1(M) > \rho_2(M)$.
+Moreover, if $M$ has only non-negative coefficients then $\rho_k(M) = \rho_1(M)$ for all $k \in [1,+\infty]$.
+
+\section*{The Conjectures}
+
+\begin{conjecture}[Conjecture 1]
+For any $M \in \mathbb{R}^{n\times n}$,
+\[
+\rho_2(M) \le \rho_3(M) \le \cdots \le \rho_\infty(M).
+\]
+\end{conjecture}
+
+\begin{conjecture}[Conjecture 2]
+For any $M \in \mathbb{R}^{n\times n}$,
+\[
+\rho_2(M) \le \rho_k(M), \quad \forall k \in \mathbb{N} \setminus \{0\}.
+\]
+\end{conjecture}
+
+\begin{conjecture}[Conjecture 3 --- \textbf{To be proved}]
+For any $n > 6$ and any $p > 2$ (with $n, p \in \mathbb{N}$), there exists $M \in \mathbb{R}^{n \times n}$ such that
+\[
+\rho_p(M) < \rho_{p+1}(M).
+\]
+\end{conjecture}
+
+\section*{Goal}
+
+Prove Conjecture~3: for every integer $n > 6$ and every integer $p > 2$, exhibit an $n \times n$ matrix $M$ (or a family thereof) for which $\rho_p(M) < \rho_{p+1}(M)$.
+
+\bigskip
+\noindent\textbf{Note on the matrix $p$-norm.} Recall that for a matrix $A \in \mathbb{R}^{n\times n}$,
+\[
+\|A\|_p = \sup_{x \neq 0} \frac{\|Ax\|_p}{\|x\|_p},
+\]
+with $\|x\|_p = \left(\sum_{i=1}^n |x_i|^p\right)^{1/p}$ for $p < \infty$ and $\|x\|_\infty = \max_i |x_i|$.
+Special cases: $\|A\|_1 = \max_j \sum_i |a_{ij}|$ (max column sum), $\|A\|_\infty = \max_i \sum_j |a_{ij}|$ (max row sum), and $\|A\|_2 = \sigma_{\max}(A)$ (largest singular value).
 
 \begin{thebibliography}{9}
-\bibitem{rosier1997} L.~Rosier, \emph{Exact boundary controllability for the Korteweg--de Vries equation on a bounded domain}, ESAIM: Control Optim.\ Calc.\ Var.\ \textbf{2} (1997), 33--55.
+\bibitem{coron2008}
+J.-M.\ Coron, G.\ Bastin, and B.\ d'Andr\'ea-Novel.
+Dissipative boundary conditions for one-dimensional nonlinear hyperbolic systems.
+\textit{SIAM J.\ Control Optim.}, 47(3):1460--1498, 2008.
 
-\bibitem{crepeau2004} E.~Cr\'epeau and J.-M.~Coron, \emph{Exact boundary controllability of a nonlinear KdV equation with critical lengths}, J.\ Eur.\ Math.\ Soc.\ \textbf{6} (2004), 367--398.
+\bibitem{coron2015}
+J.-M.\ Coron and H.-M.\ Nguyen.
+Dissipative boundary conditions for nonlinear 1-D hyperbolic systems: sharp conditions through an approach via time-delay systems.
+\textit{SIAM J.\ Math.\ Anal.}, 47(3):2220--2240, 2015.
 
-\bibitem{niu2025} J.~Niu and S.~Xiang, \emph{Small-time local controllability for a KdV equation at all critical lengths}, arXiv:2501.13640 (2025).
+\bibitem{rump2003}
+S.\ M.\ Rump.
+Optimal scaling for $p$-norms and componentwise distance to singularity.
+\textit{IMA J.\ Numer.\ Anal.}, 23(1):1--9, 2003.
 \end{thebibliography}
 
 \end{document}
