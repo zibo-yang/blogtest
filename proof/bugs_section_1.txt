@@ -1,29 +1,29 @@
-ISSUES_FOUND: count=1, report=proof/bugs_section_1.txt, top_issue="Section proves only a conditional criterion; existence of the required nonzero u is not established in this file"
+Bug Report — Irrationality of sqrt(2)
+Solution file: proof/section_1_sqrt2_irrational.tex
+Mode: standard (1 verifier run)
+Issues found: 2 (both Justification Gaps)
 
-=== Verifier Run (standard mode) ===
+================================================================================
+ISSUE 1
+================================================================================
+Anchor: Theorem 1
+Location: "Since \(r\) is rational, there exist integers \(p\) and \(q\) with \(q \neq 0\) such that \(r = \frac{p}{q}\) and \(\gcd(p,q)=1\)."
+Description: Justification Gap — Rationality gives a representation r=p/q with integers p,q and q!=0, but the existence of such a representation with gcd(p,q)=1 requires an additional result about reducing fractions to lowest terms, which is not stated or justified.
 
-Source: proof/verify_section_1.txt
+================================================================================
+ISSUE 2
+================================================================================
+Anchor: Theorem 1
+Location: "if an integer \(n\) were odd, then \(n=2m+1\) for some integer \(m\), and hence ... \(n^2\) ... is odd. Therefore, an integer whose square is even must itself be even."
+Description: Justification Gap — The argument proves that odd integers have odd squares, but the conclusion that an integer with even square must itself be even also requires the parity dichotomy/exclusivity for integers (i.e., that every integer is either even or odd, exclusively), or an explicit contrapositive argument. These facts are not stated or justified.
 
-[Issue 1] CRITICAL — Conditional criterion without existence proof
-  Location: global (entire section)
-  Verifier output:
-    "The solution only proves a conditional criterion: if a nonzero u in C^3([0,L])
-     satisfying the stated second-order boundary value problem exists, then a
-     stationary KdV solution exists. It never proves that such a nonzero u exists
-     for the required length L = 2*pi*sqrt(7/3). Therefore the main existence claim
-     in the problem is not established."
+================================================================================
+APPENDIX — Full verifier output (verify_section_1_sqrt2.txt)
+================================================================================
+Anchor: Theorem 1
+Location: "Since \(r\) is rational, there exist integers \(p\) and \(q\) with \(q \neq 0\) such that \(r = \frac{p}{q}\) and \(\gcd(p,q)=1\)."
+Description: Justification Gap — Rationality gives a representation \(r=p/q\) with integers \(p,q\) and \(q\neq 0\), but the existence of such a representation with \(\gcd(p,q)=1\) requires an additional result about reducing fractions to lowest terms, which is not stated or justified.
 
-  Context: The problem file (problem.tex) asks for a proof of existence of a nonzero
-  T-periodic solution. Section 1 states and proves Lemma 1, which is explicitly
-  conditional ("suppose there exist C and a nonzero u ..."). The remaining existence
-  argument is deferred to sections 2-4 (section_2_negative_loop, section_3_matching_length,
-  section_4_conclusion), which are \input'd by problem.tex but were not provided to
-  the verifier. The verifier correctly notes that the file under review does not,
-  by itself, close the existence claim.
-
-  Classification: This is a scope/completeness issue rather than a logical error
-  within the proven lemma. The conditional lemma's internal logic (differentiate the
-  integrated ODE, check boundary conditions, check periodicity) is not disputed by
-  the verifier.
-
-=== End of Report ===
+Anchor: Theorem 1
+Location: "if an integer \(n\) were odd, then \(n=2m+1\) for some integer \(m\), and hence ... \(n^2\) ... is odd. Therefore, an integer whose square is even must itself be even."
+Description: Justification Gap — The argument proves that odd integers have odd squares, but the conclusion that an integer with even square must itself be even also requires the parity dichotomy/exclusivity for integers, or an explicit contrapositive argument. These facts are not stated or justified.

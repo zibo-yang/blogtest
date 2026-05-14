@@ -1,10 +1,11 @@
 ## Strategy 🎯
-Prove existence of a nonzero time-periodic KdV solution at the critical length L = 2pi*sqrt(7/3) via stationary profiles: reduce to an ODE, construct a family of negative-loop orbits, and match the critical length by IVT.
+Prove √2 is irrational by contradiction: assume √2 = p/q in lowest terms (well-ordering principle), derive that both p and q must be even (parity lemma via division algorithm), contradicting gcd(p,q)=1.
 
 ## Plan
-- ✅ **Section 1: Stationary Profile Criterion** — *direct verification that stationary solutions are time-periodic*
-- ✅ **Section 2: Negative-Loop Construction** — *phase-plane analysis, construct u_a via implicit ODE + reflection*
-- ✅ **Section 3: Matching the Critical Length** — *continuity + limits of P(a), IVT application*
-- ✅ **Section 4: Conclusion** — *assembly of Sections 1–3 into the main theorem*
+- ✅ **Section 1: Irrationality of √2** — *proof by contradiction via well-ordering + parity lemma*
+  - Generator (v1): produced standard proof — verifier found 2 justification gaps (gcd reduction unjustified; parity dichotomy implicit)
+  - Improver (v2): added well-ordering argument for reduced form + explicit division-algorithm parity lemma
+  - Verifier (v2, standard): CLEAN
+  - Verifier (full proof, pessimistic, 3 runs): CLEAN — zero issues
 
 All sections verified CLEAN. Full-proof pessimistic verification: CLEAN (3 independent runs, 0 issues).
